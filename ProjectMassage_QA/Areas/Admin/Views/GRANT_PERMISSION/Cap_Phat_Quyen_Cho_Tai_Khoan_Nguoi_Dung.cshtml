@@ -1,0 +1,311 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var listdanhmucchinh = ViewData["listdanhmucchinh"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.BLog_Business_TenQuyen>;
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-right mt-2">
+                        <ul>
+                            <li class="d-inline-block ">
+                                <a class="btn btn-xs btn-primary" href="/Admin/AccountUser/index"><i class="fas fa-chevron-circle-left mr-2"></i>QUAY LẠI</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                @{
+                    var tongquyen = "";
+
+
+                    foreach (var item in Model)
+                    {
+                        tongquyen += "A" + item.PermissionId + "A";
+
+                    }
+                }
+                <input type="hidden" id="tongquyenhidden" value="@tongquyen"/>
+            </div>
+            <div class="col-md-12">
+                <div class="content-category">
+                    <h6> CẤP QUYỀN CHO TÀI KHOẢN <b>@ViewBag.usergrant</b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" id="Search" placeholder="TÌM KIẾM" class="form-control"/>
+                                        <i class="fas fa-search le"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="black direct-chat-messages" style="height: 650px; padding: 0;">
+                                        @{
+                                            var vitr = 0;
+                                            var le = 0;
+                                            foreach (var item in listdanhmucchinh)
+                                            {
+
+                                                vitr = item.BusinessId.IndexOf("Controller");
+                                                if (vitr > 0)
+                                                {
+                                                    //var quyen = item.BusinessId.Substring(0, vitr);
+                                                    <div class="Search black" onclick="show_quyen(@le)">
+                                                        <input type="hidden" id="danhmucchinhquyen_@le" value="@item.BusinessId" />
+                                                        <a>@item.BusinessName</a>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="Search black" onclick="show_quyen(@le)">
+                                                        <input type="hidden" id="danhmucchinhquyen_@le" value="@item.BusinessId" />
+                                                        <a>@item.BusinessId</a>
+                                                    </div>
+                                                }
+                                                le++;
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-6">
+                                    <span id="idnhomquyenxemxet"></span>
+                                    <input id="idnhansuhidden" type="hidden" value="@ViewBag.ID" />
+                                    <table class="table text-center table-bordered table-hover">
+                                        <tbody id="danhsachquyen1" class="mauchu"></tbody>
+                                    </table>
+                                </div>
+                                <div class="col-6">
+                                    <table class="table text-center table-bordered table-hover">
+                                        <tbody id="danhsachquyen2" class="mauchu"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Public_QA/Admin/QA_plugins/jquery-1.10.2.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            debugger;
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+
+            })
+
+        })
+    });
+    function show_quyen(le) {
+        debugger
+        $("#baocaocapquyen").html("");
+        var danhmucchinhquyen = $("#danhmucchinhquyen_" + le).val();
+        var tongquyenhidden = $("#tongquyenhidden").val();
+        $.ajax({
+            method: "GET",
+            url: "/Admin/GRANT_PERMISSION/Get_BLogPermissions?id=" + danhmucchinhquyen,
+            success: function (data) {
+                var MA = JSON.parse(data);
+                console.log(MA);
+                var SetData = $("#danhsachquyen1").html("");
+                Data = " <tr>" +
+                            "<td colspan='2' >" +
+                                "<input type='radio' name='checked12' id='chontatca'  style='width:20px;height:20px;' ><b>Chọn tất cả</b>   " +
+                                "<input type='radio' name='checked12' id='botatca' style='width:20px;height:20px; padding-left: 20px;'><b>Bỏ tất cả </b>" +
+                            " </td>" +
+                        "</tr>";
+                var Ma2 = parseInt(MA.length / 2);
+                $("#idnhomquyenxemxet").val(MA[0].BusinessId);
+                for (var i = 0; i < Ma2; i++) {
+                    var tenquyen = MA[i].Description;
+
+                    if (tongquyenhidden.indexOf("A" + MA[i].PermissionId + "A") != -1) {
+                        Data += "<tr><td><input type='checkbox' checked style=' width:20px;height:20px;' id='trangthaiquyen_" + i + "' data-id='" + i + "' class='trangthaiquyen' value='" + MA[i].PermissionId + "'></td><td>" + MA[i].Description + "</td></tr>";
+                    }
+                    else {
+                        Data += "<tr><td><input type='checkbox' style=' width:20px;height:20px;' id='trangthaiquyen_" + i + "' data-id='" + i + "' class='trangthaiquyen' value='" + MA[i].PermissionId + "'></td><td>" + MA[i].Description + "</td></tr>";
+                    }
+                }
+                var SetData1 = $("#danhsachquyen2").html("");
+                Data1 = "";
+                for (var j = Ma2; j < MA.length; j++) {
+                    var tenquyen = MA[j].Description;
+                    if (tongquyenhidden.indexOf("A" + MA[j].PermissionId + "A") != -1) {
+                        Data1 += "<tr><td><input type='checkbox' style=' width:20px;height:20px;' id='trangthaiquyen_" + j + "' checked data-id='" + j + "'  class='trangthaiquyen' value='" + MA[j].PermissionId + "'></td><td>" + MA[j].Description + "</td></tr>";
+                    }
+                    else {
+                        Data1 += "<tr><td><input  type='checkbox' style=' width:20px;height:20px;' id='trangthaiquyen_" + j + "' data-id='" + j + "'   class='trangthaiquyen' value='" + MA[j].PermissionId + "'></td><td>" + MA[j].Description + "</td></tr>";
+                    }
+                }
+                SetData.append(Data);
+                SetData1.append(Data1);
+            }
+
+        })
+
+    };
+
+    $(document).ready(function () {
+        $('html').on('click', ".trangthaiquyen", function () {
+            var id = $(this).data('id');
+            var trangcu = document.getElementsByClassName('trangthaiquyen');
+            if (trangcu[id].checked === true) {
+                var idnhansuhidden = $("#idnhansuhidden").val();
+                var data = JSON.stringify({
+                    permissionId: trangcu[id].value,
+                    idnhansuhidden: idnhansuhidden
+                });
+                $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    url: "/GRANT_PERMISSION/Save_quyen_idnhansu",
+                    data: data,
+                    success: function (result) {
+                        if (result != "") {
+                            toastr.success("Cấp quyền thành công");
+                            var thmoi = $("#tongquyenhidden").val() + result;
+                            $("#tongquyenhidden").val(thmoi);
+                        }
+                        else {
+                            toastr.warning("Chương trình chọn quyền bị lỗi");
+                        }
+
+                    },
+                    error: function () {
+                        toastr.error("Không thể thao tác !!!");
+                    }
+                });
+            }
+            else {
+                var idnhansuhidden = $("#idnhansuhidden").val();
+                var data = JSON.stringify({
+                    permissionId: trangcu[id].value,
+                    idnhansuhidden: idnhansuhidden
+                });
+                $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    url: "/GRANT_PERMISSION/Delete_quyen_idnhansu",
+                    data: data,
+                    success: function (result) {
+                        if (result != "") {
+                            toastr.success("Hủy quyền thành công");
+                            var thmoi = $("#tongquyenhidden").val();
+                            var ma = result.length;
+                            var vitri = thmoi.indexOf("A" + result + "A");
+                            var thmoi1 = thmoi.substring(0, vitri) + thmoi.substring(vitri + ma + 2, thmoi.length);
+                            $("#tongquyenhidden").val(thmoi1);
+                        }
+                        else {
+                            toastr.warning("Chương trình chọn quyền bị lỗi");
+                        }
+                    },
+                    error: function () {
+                        toastr.error("Không thể thao tác !!!");
+                    }
+                })
+            }
+
+        })
+        $('html').on("click", '#chontatca', function () {
+            var idnhomquyenxemxet = $("#idnhomquyenxemxet").val();
+            var idnhansuhidden = $("#idnhansuhidden").val();
+            var data = JSON.stringify({
+                idnhomquyenxemxet: idnhomquyenxemxet,
+                idnhansuhidden: idnhansuhidden
+            });
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/GRANT_PERMISSION/Save_Nhomquyen_idnhansu",
+                data: data,
+                success: function (result) {
+                    if (result != "") {
+                        var ma = document.getElementsByClassName('trangthaiquyen');
+                        for (var i = 0; i < ma.length; i++) {
+                            document.getElementById('trangthaiquyen_' + i).checked = true;
+                        }
+                        toastr.success("Cấp quyền thành công");
+                        var thmoi = $("#tongquyenhidden").val() + result;
+                        $("#tongquyenhidden").val(thmoi);
+                    }
+                    else {
+                        toastr.warning("Chương trình chọn quyền bị lỗi");
+                    }
+                },
+                error: function () {
+                    toastr.error("Không thể thao tác !!!");
+                }
+            });
+        });
+        $('html').on("click", '#botatca', function () {
+            var idnhomquyenxemxet = $("#idnhomquyenxemxet").val();
+            var idnhansuhidden = $("#idnhansuhidden").val();
+            var data = JSON.stringify({
+                idnhomquyenxemxet: idnhomquyenxemxet,
+                idnhansuhidden: idnhansuhidden
+            });
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/GRANT_PERMISSION/Delete_Nhom_quyen_Id",
+                data: data,
+                success: function (result) {
+                    if (result != "") {
+                        var ma = document.getElementsByClassName('trangthaiquyen');
+                        for (var i = 0; i < ma.length; i++) {
+                            document.getElementById('trangthaiquyen_' + i).checked = false;
+                        }
+                        toastr.success("Hủy quyền thành công");
+                        var thmoi = $("#tongquyenhidden").val();
+                        var ma1 = result;
+                        var ma = ma1.split('|');
+                        for (var j = 0; j < ma.length; j++) {
+                            var vitri = thmoi.indexOf("A" + ma[j] + "A");
+                            var vitri1 = ma[j].length;
+                            var thmoi1 = thmoi.substring(0, vitri) + thmoi.substring(vitri + vitri1 + 2, thmoi.length);
+                            thmoi = thmoi1;
+                        }
+                        $("#tongquyenhidden").val(thmoi);
+                    }
+                    else {
+                        toastr.warning("Chương trình chọn quyền bị lỗi");
+                    }
+                },
+                error: function () {
+                    toastr.error("Không thể thao tác !!!");
+                }
+            });
+
+        })
+    })
+</script>
+

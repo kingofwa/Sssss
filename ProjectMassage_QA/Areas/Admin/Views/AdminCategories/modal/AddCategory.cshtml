@@ -1,0 +1,32 @@
+﻿
+<div class="modal fade" id="Modal_categories">
+    <div class="modal-dialog modal-default">
+        <div class="modal-addcategories">
+            <div class="modal-header maume" >
+                <h5 class="card-title text-white text-uppercase">Thể loại</h5>
+                <span class="text-danger" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body mauchu">
+                <form id="Modal_work_form" class="row" action="">
+                    <input type="hidden" id="Id_category" value="0">
+                    <div class="form-group col-12">
+                        <label for="">Tên thể loại <code>*</code></label>
+                        <input type="text" id="NameCategory" class="form-control">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="">Đơn giá<code>*</code></label>
+                        <input type="text" id="MoneyCategory" class="form-control">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="">Ghi chú</label>
+                        <textarea id="Note" cols="10" rows="1" class="form-control"></textarea>
+                    </div>
+                    <button type="button" id="save_category" class="btn btn-xs btn-primary float-right mt-2 m-2"><i class="fa fa-save"></i> Lưu</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-xs btn-danger float-right mt-2 m-2"><i class="fa fa-times"></i> Hủy</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

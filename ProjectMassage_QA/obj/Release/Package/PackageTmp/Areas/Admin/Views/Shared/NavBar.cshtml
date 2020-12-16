@@ -1,0 +1,103 @@
+﻿
+<nav class="main-header navbar navbar-expand navbar-white navbar-light maume " style="font-size:17px;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button" id="left_right_menu_home_lepvc"><i class="fas fa-bars"></i></a>
+            @*<input type="text" id="left_menu_show_hide"  value="1" />*@
+        </li>
+        <li class="nav-item d-sm-inline-block">
+            <a href="/Admin/AdminHome/home" class="btn btn-flat btn-xs mt-2 maume"><i class="fas fa-align-center mr-1"></i> BẢNG ĐIỀU KHIỂN</a>
+        </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            @*<div id="khoamanhinh">
+                <a class="nav-link">
+                    <i class="fas fa-arrows-alt" style="color: #cb0707;"></i>
+                </a>
+                <input type="hidden" id="show_hide_toogle_pass"  value="1"/>
+            </div>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" id="mokhoashow">
+                <div class="card  card-primary defaul_QA black" style="margin-bottom: 0px">
+                    <div class="card-header maume" style="border-top-left-radius:0px;border-top-right-radius:0;">
+                        <h4 class="card-title">Mở khóa màn hình</h4>
+                    </div>
+                    <form>
+                        <div class="card-body" style="padding:14px;" id="cuor_auto">
+                            <div class="form-group margin-group">
+                                <label class="margin-bottom-3" for="">Nhập mật khẩu<i class="fas fa-check-circle" style="color: #00fe00; display:none"></i></label>
+                                <p>
+                                    <input type="password" class="form-control password" onkeyup="Change_Password()" id="Pass_SC">
+                                    <button class="unmask" type="button"><i class="fas fa-eye"></i></button>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="#" onclick="UNLOCK_SCREEN()" class="btn btn-xs btn-primary p-0 " id="mo"><i class="fas fa-exchange-alt"></i> Mở khóa </a>
+                </div>
+            </div>*@
+        </li>
+        <li class="nav-item">
+            <div class="float-left pt-2">
+                <i onclick="lepvc2()" class="fas fa-expand" id="none2"></i>
+                <i onclick="troioi10()" class="fas fa-compress-arrows-alt d-none" id="nonenone"></i>
+                <input value="@Session["status_screen"]" type="text" class="custom-control-input" id="screen_QA">
+            </div>
+        </li>
+      
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                @*<i class="fas fa-unlock-alt" style="color: #cb0707;"></i>*@
+                <i class="fas fa-fingerprint" style="color: #cb0707;"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="card  card-primary defaul_QA black" style="margin-bottom: 0px">
+                    <div class="card-header maume" style="border-top-left-radius:0px;border-top-right-radius:0;">
+                        <h4 class="card-title">Đổi mật khẩu </h4>
+                    </div>
+                    <form>
+                        <div class="card-body" style="padding:14px;">
+                            <div class="form-group margin-group">
+                                <label class="margin-bottom-3" for="">Mật khẩu củ <i class="fas fa-check-circle" style="color: #00fe00; display:none"></i></label>
+                                <p>
+                                    <input type="password" class="form-control password" onkeyup="Change_Password()" id="Pass_SC">
+                                    <button class="unmask" type="button"><i class="fas fa-eye"></i></button>
+                                </p>
+                            </div>
+                            <div class="form-group margin-group">
+                                <label class="margin-bottom-3" for="">Mật khẩu mới</label>
+                                <p>
+                                    <input type="password" class="form-control password" id="Pass_new1" disabled style="cursor: not-allowed;">
+                                    <button class="unmask" type="button"><i class="fas fa-eye"></i></button>
+                                </p>
+                            </div>
+                            <div class="form-group margin-group">
+                                <label class="margin-bottom-3" for="">Nhập lại mật khẩu mới</label>
+                                <p>
+                                    <input type="password" class="form-control password" id="Pass_new2" disabled style="cursor: not-allowed;">
+                                    <button class="unmask" type="button"><i class="fas fa-eye"></i></button>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                    @*<a href="@Url.Action("LogOut", "Login")" id="logoutnone" class="btn btn-xs btn-warning p-0"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>*@
+                    <i class="fas fa-check" style="color: #00fe00;"></i>
+                    <a href="#" onclick="Last_Change_Password()" class="btn btn-xs btn-primary p-0 disabled"><i class="fas fa-exchange-alt"></i>  Đổi </a>
+                </div>
+            </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item">
+            <div class="float-left pt-2">
+                <div class="custom-control custom-switch">
+                    <input value="@Session["status_color"]" type="checkbox" class="custom-control-input" id="customSwitch">
+                    <i id="customSwitch" class="fas fa-power-off"></i>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+@*<label class="custom-control-label" for="customSwitch"></label>*@

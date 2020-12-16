@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header mauchu" style="padding: 10px 0px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="float-left">
+                            <input type="hidden" id="zoom_history" value="1" />
+                            <input type="hidden" id="status_shift" value="@Session["status_ka"]" />
+                            <input type="hidden" id="thongke" value="1" />
+                            <a onclick="Show_thongke()" class="btn btn-outline-secondary btn-xs btn-flat text-uppercase" id="html_thongke"><i class="fas fa-signal"></i>  Thống kê</a>
+                            <a onclick="Show_history()" class="btn btn-outline-secondary btn-xs btn-flat text-uppercase mr-1" id="html"><i class="fas fa-history"></i>  NHật ký</a>
+                            @if (Convert.ToInt32(Session["status_ka"]) == 1)
+                            {
+                                <a id="Add_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase"><i class="fas fa-plus"></i> | Mở ca</a>
+                                <a id="show_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase d-none"><i class="fab fa-accusoft"></i> | Đóng ca</a>
+                            }
+                            else if (Convert.ToInt32(Session["status_ka"]) == 2)
+                            {
+                                <a id="Add_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase d-none"><i class="fas fa-plus"></i> | Mở ca</a>
+                                <a id="show_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase"><i class="fab fa-accusoft"></i> | Đóng ca</a>
+                            }
+                            else
+                            {
+                                <a id="Add_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase d-none"><i class="fas fa-plus"></i> | Mở ca</a>
+                                <a id="show_work" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase  d-none"><i class="fab fa-accusoft"></i> | Đóng ca</a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col -->
+            <div class="col-sm-8">
+                <div class="float-right justify-content-center" id="none_addshowhistory">
+                    <input type="hidden" id="zoom_in_out" value="1" />
+
+                    <a id="Reload_page" class="btn btn-outline-secondary btn-xs" title="Tải lại trang"><i class="fas fa-recycle"></i></a>
+                    <a id="Modal_thutien" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase mr-2"><i class="fas fa-file-invoice-dollar"></i> | PHIẾU THU</a>
+                    <a id="Modal_chitien" class="btn btn-outline-secondary btn-flat btn-xs text-uppercase mr-2"><i class="fab fa-creative-commons-nc"></i> | PHIẾU CHI</a>
+                    <a id="Show_employee_stafff" class="btn btn-sm btn-outline-secondary btn-flat btn-xs mr-2"><i class="fab fa-creative-commons-by"></i> NHÂN VIÊN</a>
+                    <a onclick="Show_All()" class="btn btn-sm btn-outline-info btn-xs btn-flat mr-2 "><i class="fab fa-schlix"></i> | TẤT CẢ</a>
+                    <a onclick="Show_Room_Empty()" class="btn btn-sm btn-outline-success btn-xs btn-flat mr-2 "><i class="fab fa-buromobelexperte"></i> | ĐANG TRỐNG</a>
+                    <a onclick="Show_Room_Employee()" class="btn btn-sm btn-outline-warning btn-xs btn-flat mr-2 "><i class="fas fa-bed"></i> | CÓ KHÁCH</a>
+                    <a onclick="Show_Room_Transit()" class="btn btn-sm btn-outline-secondary btn-xs btn-flat "><i class="fas fa-hands-wash"></i> | ĐANG DỌN</a>
+                    @*<a onclick="Get_Data_Oder_Client()" class="btn btn-outline-secondary btn-xs"><i class="fas fa-search"></i></a>*@
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /QA.content-header -->
+<section class="content" id="hide_show_thongke" style="padding:0px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 QA_block_home d-none" id="history_home_admin">
+                @RenderPage("history.cshtml")
+            </div>
+            <div class="col-md-8 QA_block_home d-none" id="hide_giaodien">
+                @RenderPage("giaodien.cshtml")
+            </div>
+            <div class="col-md-8 QA_block_home " id="QA_block">
+                <div class="card card-primary defaul_QA" style="margin-bottom:10px;">
+                    <div class="card-header maume" style="border-top-left-radius:0px; border-top-right-radius:0px;">
+                        <h3 class="card-title">PHÒNG </h3>
+                        <div class="col-md-5 float-left">
+                            <input oninput="Drag(this.value)" onchange="Drag(this.value)" type="range" id="vol" value="25" min="0" max="50" style="width:25%;">
+                        </div>
+                        <div class="card-tools">
+                            <i onclick="Hide_Oder_Left()" id="QA_card_left" class="fas fa-angle-double-left" style="display:none;"></i>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="thu gọn" id="thugon">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="hidden" id="andoimau" value="1" />
+                        </div>
+                    </div>
+                    <div class="card-body room_zoom_out black direct-chat-messages heightContent">
+                        <div class="row" id="show_room_home" style="pointer-events: none;">
+                            @RenderPage("room.cshtml")
+                        </div><!-- /.row -->
+                    </div>
+                    <div class="giaodien" onclick="Show_giaodien()">
+                        <a href="#" id="loadlaipage">
+                            <i class="fas fa-braille"></i>
+                        </a>
+                        <input type="hidden" id="zoom_giaodien" value="1" />
+                    </div>
+                    <div class="chuthich" id="lepvcccccccccccccccc">
+                        @*append ở QA_home_admin*@
+                    </div>
+                </div>
+                <div class="chart d-none" id="hide_chart">
+                    @RenderPage("employee_staff.cshtml")
+                </div><!--QA end chart d-none-->
+            </div><!--QA end col-md-9 -->
+            <div class="col-md-4" id="hide_oder_home">
+                @RenderPage("Oder.cshtml")<!--QA page oder -->
+                @RenderPage("Bill.cshtml")<!--QA page hóa đơn -->
+            </div><!--QA end col-md-3 -->
+        </div>
+    </div> <!--QA end container-fluid -->
+</section>
+<!-- /QA.content -->
+<section class="content d-none" id="show_thong_ke_home" style="padding: 0px; margin: 0px 8px;">
+    @RenderPage("thongke.cshtml")
+</section>
+
+<footer style="margin-bottom:0px;">
+    <div class="container-fluid">
+        <p class="coppy_right_QA">
+            Coppyright<i class="far fa-copyright"></i><a class="text-blue">QUOCANH </a>
+            <b class="ml-1">@DateTime.Now.ToString("yyyy") - @DateTime.Now.AddYears(1).ToString("yyyy")</b>
+            <marquee id="thongbao_bottom_footer" width="70%" direction="right" style="padding: 0; margin: 0; position: absolute; margin-left: 80px; color: #fa3d3d; font-size: 11px;">
+
+            </marquee>
+        </p>
+    </div>
+</footer>
+
+<div class='context-menu'>
+    <ul id="menu_home"></ul>
+    <input type='hidden' value='' id='txt_id'>
+</div>
+
+@RenderPage("Modal/DetailsEmployee.cshtml")
+@RenderPage("Modal/checkIn.cshtml")
+@RenderPage("Modal/Bill.cshtml")
+@RenderPage("../AdminWorkShift/modal/CloseWorkShift.cshtml")
+@RenderPage("../AdminRoom/modal/Addroom.cshtml")
+@RenderPage("../AdminWorkShift/modal/AddWorkShift.cshtml")
+@RenderPage("../AdminPayMoney/modal/phieuchi.cshtml")
+@RenderPage("../AdminCollectMoney/modal/phieuthu.cshtml")

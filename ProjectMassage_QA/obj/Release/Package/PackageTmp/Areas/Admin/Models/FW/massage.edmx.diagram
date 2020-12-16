@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="544d70f8063c4fd0a522043a0637b110" Name="Diagram1">
+        <EntityTypeShape EntityType="Data_MassageModel.BDang_Ky" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.BLich_Su_Vao_Phan_Mem" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.BLog_Business_TenQuyen" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.BLog_Permission_BCacQuenCT" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.Discount_Code" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.Footer_client" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.GrantPermission" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.phieu_thu" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.SettingAdmin" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tbl_CaLamViec" Width="1.5" PointX="13" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tbl_Loai_Ca_Lam_Viec" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tbl_Phieu_Chi" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tbl_User" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblCategories" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblColecttion" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblCheckin" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblEmployees" Width="1.5" PointX="5.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblNotification" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblOrder" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblOrderDetail" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblRegister" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblRoom" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblSepending" Width="1.5" PointX="8" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblServicies" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblSlider" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblStaffInEmployee" Width="1.5" PointX="8" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.tblStarOrder" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.TypeEmployee" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_MassageModel.UserGroup" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="Data_MassageModel.FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblRoom_tblCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblColecttion_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblRegister_tblEmployees" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblSepending_tblEmployees" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblStaffInEmployee_tblEmployees" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblOrderDetail_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_MassageModel.FK_tblStarOrder_tblOrder" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

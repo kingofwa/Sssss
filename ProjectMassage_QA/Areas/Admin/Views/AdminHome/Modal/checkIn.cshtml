@@ -1,0 +1,121 @@
+﻿@{
+    var list_employee = ViewData["list_employee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.map_employee_Result>;
+    var list_cate = ViewData["list_cate"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblCategories>;
+    var list_service = ViewData["list_service"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblServicies>;
+}
+<div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="QA_Admin-modal-content">
+            <div class="modal-header  maume" style="padding:10px;">
+                <h6 class="modal-title text-uppercase text-white">CHECKIN</h6>
+                <span class="text-danger pr-2" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal mauchu">
+                    <div class="card-body p-0">
+                            <div class="col-md-12 row">
+                                <div class="col-md-2">
+                                    <h5 style="display: inline-block; font-size: 16px; margin-left: 17px;"><strong>Phòng</strong><code>*</code></h5>
+                                </div>
+                                <div class="col-md-10 row Reset_Oder_room" id="show_rooms">
+                                    
+                                </div>
+                          </div>
+                        <div class="form-group row">
+                            <label for="checkin" class="col-sm-2 col-form-label">Check in</label>
+                            <div class="col-sm-2">
+                                <input value="@DateTime.Now.ToString("MM/dd/yyyy")" class="form-control" id="FirtDayCheckin">
+                            </div>
+                            <div class="col-sm-2">
+                                <input value="" class="form-control" id="FirtHourCheckin">
+                                @*@DateTime.Now.ToString("hh:mm tt")*@
+                            </div>
+                            <label for="" class="col-sm-1 col-form-label">Đến</label>
+                            <div class="col-sm-2">
+                                <input class="form-control" id="LastDayCheckin">
+                                @*value="@DateTime.Now.ToString("MM/dd/yyyy")"*@
+                            </div>
+                            <div class="col-sm-2">
+                                <input class=" form-control" id="LastHourCheckin">
+                                @*value="@DateTime.Now.AddHours(2).ToString("hh:mm tt")"*@
+                            </div>
+                        </div>
+
+                        <div class="QA_form-group row">
+                            <label for="" class="col-sm-2 QA_col-form-label">Dịch vụ <code>*</code></label>
+                            <div class="col-sm-4">
+                                <select id="ServiceCheckin" class="QA_form-control">
+                                    <option>Chọn dịch vụ</option>
+                                    @foreach (var item in list_service)
+                                    {
+                                        <option value="@item.Id">@item.S_Name</option>
+                                    }
+                                </select> @*//$("#Select_rom_").val()*@
+                                <input type="hidden" class="ID_tang" id="ServiceCheckin_Tang_Id_hiden" value="0">
+                                <input type="hidden" id="Order_Id_hiden" value="0"/>
+                            </div>
+                            <label for="" class="col-sm-1 QA_col-form-label">Thể loại</label>
+                            <div class="col-sm-4">
+                                <input type="hidden" class="ID_tang" id="Category_Id_Tang_hiden" value="0" />
+                                <select name="" id="CategoryCheckin" class="QA_form-control">
+                                    <option>Chọn thể loại</option>
+                                    @foreach (var item in list_cate)
+                                    {
+                                        <option value="@item.Id">@item.C_Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <div class="col-sm-9">
+                                <textarea name="" id="NoteCheckin" cols="1" rows="1" class="form-control"></textarea>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </form>
+                
+                <!-- danh sach nhan vien-->
+                <div class="card-body">
+                    <h5 class="title mauchu" style="display: inline-block; font-size: 16px">Nhân viên <code>*</code></h5>
+                    <div class="col-md-12">
+                        <div class="row">
+                            @{
+                                var j = 0;
+                            }
+                            @foreach (var item in list_employee)
+                            {
+                                var employee_status_off = ""; var CSS = "";
+                                if (item.E_Status == 2)
+                                {
+                                    employee_status_off = "warning";
+                                    CSS = "QA_disabled";
+                                }
+                                else if (item.E_Status == 1)
+                                {
+                                    employee_status_off = "sussecc";
+                                }
+                                <div class="col-md-2 text-white-50  @CSS" id="travetrangthainhanvien_@item.EmployeeId">
+                                    <input type="hidden" class="QA_employee_Oder_Admin1" value="@item.EmployeeId" />
+                                    <input type="hidden" class="ID_tang" id="QA_employee_Oder_Admin_ID_tang_@item.EmployeeId" value="0" />
+                                    <input type="hidden" id="statusemployee_@item.EmployeeId" data-code="@item.E_Code" data-money="@item.E_Money" data-id="@item.EmployeeId" class="QA_employee_Oder_Admin" value="0" />
+                                    <p class="employee text-xs-center @employee_status_off" id="addemployee_@item.EmployeeId" data-id="@item.EmployeeId">@item.E_Name</p>
+                                    <div class="d-inline-block float-left overflow-hidden">
+                                        <img src="@item.E_Image" alt="QA_T" style="width:100%;"/>
+                                    </div>
+                                </div>
+                                j++;
+                            }
+                        </div>
+                    </div>
+                </div> <!-- het danh sach nhan vien -->
+                 <p class="text-left text-xs text-danger m-0 d-inline-block"><small id="chu_y_khi_check"> </small></p>
+                <button onclick="ConfirmCheckIn()" class="btn btn-primary btn-xs mr-5  float-right"><i class="fa fa-save"></i> Lưu</button>
+                <button onclick="CloseRessetroom()" class="btn btn-danger btn-xs float-right mr-3"><i class="fa fa-times"></i> Hủy</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div> <!--end model check in -->

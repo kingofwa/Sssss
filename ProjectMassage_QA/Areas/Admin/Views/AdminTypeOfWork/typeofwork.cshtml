@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_loaica = ViewData["list_loaica"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tbl_Loai_Ca_Lam_Viec>;
+}
+
+    <div class="QA_warapper-content-category">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-content-category">
+                        <div class="menu-crud float-lg-right mt-2">
+                            <ul>
+                                <li class="d-inline-block mr-2">
+                                    <a id="Modal_typeofwork" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                                </li>
+                                <li class="d-inline-block mr-2">
+                                    <a class="btn btn-xs btn-warning text-white disabled" id="Modal_typeofwork_edit"><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                                </li>
+                                <li class="d-inline-block">
+                                    <a class="btn btn-xs btn-danger text-white disabled" id="Modal_typeofwork_delete"><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- het header CRUD -->
+                </div>
+                <div class="card-body lepvcc black direct-chat-messages">
+                    <div class="col-md-12">
+                        <div class="content-category">
+                            <table class="table text-center table-bordered table-hover">
+                                <thead>
+                                    <tr class="maume">
+                                        <th colspan="1" style="width:5%">#</th>
+                                        <th>Tên loại</th>
+                                        <th>Từ giờ</th>
+                                        <th>Đến giờ</th>
+                                        <th style="width:40%">Ghi chú</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hien_thi">
+                                    @{
+                                        foreach (var item in list_loaica)
+                                        {
+                                            <tr id="row_@item.Id">
+                                                <td>
+                                                    <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                                </td>
+                                                <td id="Name_@item.Id">@item.Name</td>
+                                                <td id="FirtTime_@item.Id">@item.FirtTime.GetValueOrDefault().Hour:@item.FirtTime.GetValueOrDefault().Minute</td>
+                                                <td id="LastTime_@item.Id">@item.LastTime.GetValueOrDefault().Hour:@item.LastTime.GetValueOrDefault().Minute</td>
+                                                <td id="Note_@item.Id">@item.Note</td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div><!-- het col-md-12 category -->
+                </div><!-- het row -->
+        </div><!-- het col-md-12 -->
+    </div><!--/QA_warapper-content-category-->
+@RenderPage("Modal/Addtypeofwork.cshtml")

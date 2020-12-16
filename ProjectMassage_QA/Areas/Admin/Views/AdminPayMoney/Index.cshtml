@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Chitien";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_phieuchi = ViewData["list_phieuchi"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tbl_Phieu_Chi>;
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="Modal_chitien" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i>Chi tiền</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-warning text-white disabled" id="edit_phieuchi"><i class="fas fa-user-edit mr-1"></i> Sửa </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="btn btn-xs btn-danger text-white disabled" id="delete_phieuchi"><i class="fas fa-trash-alt mr-1"></i>Xóa phiếu</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <table class="table text-center table-bordered table-hover" id="myTable">
+                        <thead>
+                            <tr class="maume">
+                                <th colspan="1">#</th>
+                                <th>Số chứng từ</th>
+                                <th>Người nhận</th>
+                                <th>Người chi</th>
+                                <th>Số tiền</th>
+                                <th>SĐT người nhận</th>
+                                <th>Nội dung</th>
+                                <th style="width:30%;">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="show-body">
+                            @foreach (var item in list_phieuchi)
+                            {
+                                <tr id="row_@item.Id">
+                                    <td>
+                                        <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                    </td>
+                                    <td id="sochungtu_chi_@item.Id">@item.sochungtu_chi</td>
+                                    <td id="nguoinhan_@item.Id">@item.nguoinhan</td>
+                                    <td id="nguoilap_@item.Id">@item.nguoilap</td>
+                                    <td class="text-right" id="sotien_chi_@item.Id"><b class="text-danger">@item.sotien_chi.GetValueOrDefault().ToString("N0")</b></td>
+                                    <td id="sodienthoai_@item.Id">@item.sodienthoai</td>
+                                    <td id="noidungthu_@item.Id">@item.noidungchi</td>
+                                    <td id="Note_thu_@item.Id">@item.Note_chi</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->
+@RenderPage("modal/phieuchi.cshtml")
+
+
+

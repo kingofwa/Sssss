@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Sổ quỹ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_quy_tien = ViewData["list_quy_tien"] as List<ProjectMassage_QA.Areas.Admin.Models.ViewModel.Accountant>;
+}
+<div class="QA_warapper-content-category">
+    <div class="card-body lepvcc soquy black direct-chat-messages">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 mt-2">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <img src="" class="logo_res brand-image img-circle" alt="QA" style="height:50px;display:inline-block;margin-bottom:5px;" />
+                                <h6 style="font-size: 14px;" class="viethoaCT"></h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center" style="font-size: 15px;">
+                                <h6 class="text-blue viethoaCT"></h6>
+                                <p class="mb-1 diachi"></p>
+                                <p class="mb-1 sdt"></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="text-center">
+                                <h4 class="mt-2 text-danger">SỔ QUỸ TIỀN </h4>
+                            </div>
+                        </div>
+                    </div><!-- het row -->
+                </div><!-- het col-md-12 -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">TỔNG THU</span>
+                                    <span class="info-box-number text-danger" id="tongthu"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <!-- fix for small devices only -->
+                        <div class="clearfix hidden-md-up"></div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">TỔNG CHI</span>
+                                    <span class="info-box-number text-danger" id="tongchi"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text" id="quyquyquy"></span>
+                                    <span class="info-box-number text-danger" id="tongcon"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="content-category">
+                        <table class="table text-center table-bordered table-hover" id="myTable">
+                            <thead>
+                                <tr class="maume">
+                                    <th style="width:7%;">Ngày lập</th>
+                                    <th>Số chứng từ</th>
+                                    <th>Số tiền thu</th>
+                                    <th>Số tiền chi</th>
+                                    @*<th>Số tiền tồn</th>*@
+                                    <th>Người nhận/nộp</th>
+                                    <th>Người thu/chi</th>
+                                    <th style="width:20%;">Diễn giải</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show-body">
+                                @{
+                                    float ton = 0;
+                                    float thutruchi = 0;
+                                }
+                                @foreach (var item in list_quy_tien.OrderBy(x => x.ngaylap).ThenByDescending(x => x.sochungtu_thu.Substring(0, 2)).ThenBy(x => Convert.ToInt32(x.sochungtu_thu.Substring(5))).ToList())
+                                {
+                                    if (item.sotien_chi > 0)
+                                    {
+                                        thutruchi = (float)item.sotien_chi - (float)item.sotien_thu;
+                                        ton = ton - (float)thutruchi;
+                                        <tr style="background-color:#b9e5ec;">
+                                            <td>@item.ngaylap.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                                            <td><a class="badge  badge-pill" data-ajax="@item.Id" style="background:#18b7ff;">@item.sochungtu_thu</a></td>
+                                            <td class="text-right">@item.sotien_thu</td>
+                                            <td class="text-right text-danger">
+                                                @item.sotien_chi.GetValueOrDefault().ToString("N0")
+                                                <input type="hidden" class="sotienchi" value="@item.sotien_chi" />
+                                            </td>
+                                            @*<td class="text-right text-danger">@ton.ToString("N0")</td>*@
+                                            <td>@item.nguoinhan</td>
+                                            <td>@item.nguoilap</td>
+                                            <td>@item.noidungchi</td>
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        thutruchi = (float)item.sotien_thu - (float)item.sotien_chi;
+                                        ton = ton + thutruchi;
+                                        <tr style="background-color: #f9f0a0;">
+                                            <td>@item.ngaylap.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                                            <td><a class="badge badge-warning badge-pill">@item.sochungtu_thu</a></td>
+                                            <td class="text-right text-danger">
+                                                @item.sotien_thu.GetValueOrDefault().ToString("N0")
+                                                <input type="hidden" class="sotienthu" value="@item.sotien_thu" />
+                                            </td>
+                                            <td class="text-right">@item.sotien_chi</td>
+                                            @*<td class="text-right text-danger">@ton.ToString("N0")</td>*@
+                                            <td>@item.nguoinhan</td>
+                                            <td>@item.nguoilap</td>
+                                            <td>@item.noidungthu</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->
+@RenderPage("../AdminCollectMoney/modal/phieuthu.cshtml")
+@RenderPage("../AdminPayMoney/modal/phieuchi.cshtml")

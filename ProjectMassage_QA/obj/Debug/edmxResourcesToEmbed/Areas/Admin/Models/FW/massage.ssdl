@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Data_MassageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BDang_Ky">
+    <Key>
+      <PropertyRef Name="ID_dang_Ky" />
+    </Key>
+    <Property Name="ID_dang_Ky" Type="int" Nullable="false" />
+    <Property Name="Dangkycongty" Type="nvarchar" MaxLength="500" />
+    <Property Name="tencongtychuthuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="500" />
+    <Property Name="TenGiamdocky" Type="int" />
+    <Property Name="Tenketoantruong" Type="int" />
+    <Property Name="Tenthuquy" Type="int" />
+    <Property Name="Thu_Kho" Type="int" />
+    <Property Name="Masothue" Type="varchar" MaxLength="50" />
+    <Property Name="Dienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="Sotaikhoan" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tainganhang" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoFax" Type="varchar" MaxLength="50" />
+    <Property Name="NamTaichinh" Type="int" />
+    <Property Name="Diachi_VanPhong" Type="nvarchar" MaxLength="250" />
+    <Property Name="Motanganhnghe" Type="nvarchar(max)" />
+    <Property Name="TenTiengAnh" Type="nvarchar" MaxLength="250" />
+    <Property Name="Songaythuno" Type="int" />
+    <Property Name="Ngayhoachtoan" Type="date" />
+    <Property Name="Ngaykethuchoachtoan" Type="date" />
+    <Property Name="Muc_dong_BH" Type="int" />
+    <Property Name="Ngay_Cong" Type="int" />
+    <Property Name="Lam_CN" Type="nvarchar" MaxLength="50" />
+    <Property Name="DK_Open" Type="time" Precision="7" />
+    <Property Name="DK_Close" Type="time" Precision="7" />
+    <Property Name="Thoi_Gian_Check_Int" Type="int" />
+    <Property Name="Thoi_Gian_Ca" Type="int" />
+    <Property Name="Chu_y" Type="nvarchar" MaxLength="250" />
+    <Property Name="Thong_bao" Type="nvarchar" MaxLength="250" />
+    <Property Name="thank_custommer" Type="nvarchar" MaxLength="250" />
+    <Property Name="phuphi" Type="int" />
+    <Property Name="thuevat" Type="int" />
+    <Property Name="xacnhan" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="BLich_Su_Vao_Phan_Mem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nhan_su_ID" Type="int" />
+    <Property Name="Controller" Type="nvarchar" MaxLength="500" />
+    <Property Name="Action" Type="nvarchar" MaxLength="500" />
+    <Property Name="Ngay_vao" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BLog_Business_TenQuyen">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Name="BusinessId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BusinessName" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="BLog_Permission_BCacQuenCT">
+    <Key>
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="PermissionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PermissionName_TenQuyen" Type="nvarchar" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="BusinessId" Type="varchar" MaxLength="100" />
+    <Property Name="Quyencapcao" Type="bit" />
+  </EntityType>
+  <EntityType Name="Discount_Code">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name_discount" Type="nvarchar" MaxLength="250" />
+    <Property Name="Sale_code" Type="varchar" MaxLength="50" />
+    <Property Name="Discount_code_view" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Footer_client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name_f" Type="nvarchar" MaxLength="250" />
+    <Property Name="Diachi_f" Type="nvarchar" MaxLength="250" />
+    <Property Name="Sodienthoai" Type="text" />
+    <Property Name="F_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="F_Active" Type="int" />
+  </EntityType>
+  <EntityType Name="GrantPermission">
+    <Key>
+      <PropertyRef Name="PermissionId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="PermissionId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="phieu_thu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nguoinoptien" Type="nvarchar" MaxLength="150" />
+    <Property Name="sodienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="500" />
+    <Property Name="sotien_thu" Type="float" />
+    <Property Name="noidungthu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Note_thu" Type="nvarchar" MaxLength="250" />
+    <Property Name="nguoinop" Type="nvarchar" MaxLength="150" />
+    <Property Name="nguoilap" Type="nvarchar" MaxLength="150" />
+    <Property Name="ngaylap" Type="date" />
+    <Property Name="sochungtu_thu" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SettingAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="thoigian" Type="int" />
+    <Property Name="thoigianca" Type="int" />
+    <Property Name="fontchu" Type="nvarchar" MaxLength="100" />
+    <Property Name="cochu" Type="int" />
+    <Property Name="chuy" Type="nvarchar" MaxLength="250" />
+    <Property Name="mauonline" Type="varchar" MaxLength="50" />
+    <Property Name="maucokhach" Type="varchar" MaxLength="50" />
+    <Property Name="maucho" Type="varchar" MaxLength="50" />
+    <Property Name="thongbao" Type="nvarchar" MaxLength="250" />
+    <Property Name="maunhanvienonline" Type="varchar" MaxLength="50" />
+    <Property Name="maunhanviencokhach" Type="varchar" MaxLength="50" />
+    <Property Name="colorbar" Type="varchar" MaxLength="50" />
+    <Property Name="ID_User" Type="int" />
+    <Property Name="mauchu" Type="varchar" MaxLength="50" />
+    <Property Name="heightContent" Type="int" />
+    <Property Name="widthContent" Type="int" />
+    <Property Name="heightRight" Type="int" />
+    <Property Name="widthRight" Type="int" />
+    <Property Name="hienthichuthich" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_CaLamViec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="LoaiCaLamViecId" Type="int" />
+    <Property Name="NameEmployee" Type="nvarchar" MaxLength="100" />
+    <Property Name="FirtTime" Type="varchar" MaxLength="50" />
+    <Property Name="LastTime" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Id_giao" Type="int" />
+    <Property Name="Id_nhan" Type="int" />
+    <Property Name="Tong_tien_thu_trong_ca" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Tien_ca_truoc_ban_giao" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Tong_tien_mat" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Tong_tien_cuoi_ca" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="Note_shift" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_Loai_Ca_Lam_Viec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="FirtTime" Type="datetime" />
+    <Property Name="LastTime" Type="datetime" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Phieu_Chi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="sodienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="500" />
+    <Property Name="sotien_chi" Type="float" />
+    <Property Name="noidungchi" Type="nvarchar" MaxLength="250" />
+    <Property Name="Note_chi" Type="nvarchar" MaxLength="100" />
+    <Property Name="chuky_nguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="nguoilap" Type="nvarchar" MaxLength="50" />
+    <Property Name="ngaylap" Type="date" />
+    <Property Name="sochungtu_chi" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="Chucvu" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupID" Type="varchar" MaxLength="50" />
+    <Property Name="Name_User" Type="varchar" MaxLength="50" />
+    <Property Name="Email_User" Type="varchar" MaxLength="50" />
+    <Property Name="Pass_User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+    <Property Name="U_Status" Type="bit" />
+    <Property Name="Dark_Light_theme" Type="int" />
+    <Property Name="Full_full_screen" Type="int" />
+  </EntityType>
+  <EntityType Name="tblCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="C_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="C_Active" Type="bit" />
+    <Property Name="C_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="C_Money" Type="float" />
+  </EntityType>
+  <EntityType Name="tblColecttion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Order_Id" Type="int" />
+    <Property Name="CL_NewDay" Type="date" />
+    <Property Name="CL_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="CL_NhanSuId" Type="int" />
+    <Property Name="CL_Active" Type="bit" />
+    <Property Name="CL_Content" Type="nvarchar" MaxLength="250" />
+    <Property Name="CL_Note" Type="nvarchar" MaxLength="50" />
+    <Property Name="CL_Money" Type="float" />
+  </EntityType>
+  <EntityType Name="tblCheckin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirtDayCheckin" Type="date" />
+    <Property Name="FirtHourCheckin" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDayCheckin" Type="date" />
+    <Property Name="LastHourCheckin" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryCheckin" Type="nchar" MaxLength="10" />
+    <Property Name="ServiceCheckin" Type="nchar" MaxLength="10" />
+    <Property Name="EmployeeStaffCheckin" Type="varchar" MaxLength="50" />
+    <Property Name="NoteCheckin" Type="varchar" MaxLength="100" />
+    <Property Name="ID_RoomCheckin" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblEmployees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="E_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeEmployeeId" Type="int" />
+    <Property Name="E_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="E_Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_CMND" Type="varchar" MaxLength="50" />
+    <Property Name="E_Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="E_Dayin" Type="datetime" />
+    <Property Name="E_Dayout" Type="datetime" />
+    <Property Name="E_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="E_Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_Active" Type="int" />
+  </EntityType>
+  <EntityType Name="tblNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="N_Content" Type="nvarchar" MaxLength="350" />
+    <Property Name="N_Show" Type="int" />
+    <Property Name="N_Note" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirtDayCheckin" Type="date" />
+    <Property Name="FirtHourCheckin" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDayCheckin" Type="date" />
+    <Property Name="LastHourCheckin" Type="nvarchar" MaxLength="50" />
+    <Property Name="O_number" Type="nvarchar" MaxLength="550" />
+    <Property Name="NhanVienID" Type="int" />
+    <Property Name="DayNew" Type="date" />
+    <Property Name="Note" Type="varchar" MaxLength="200" />
+    <Property Name="Chay" Type="int" />
+    <Property Name="Ca_lam_Id" Type="int" />
+    <Property Name="Id_Code_sale" Type="int" />
+    <Property Name="phantramgiam" Type="int" />
+  </EntityType>
+  <EntityType Name="tblOrderDetail">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="Id_tang" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Id_tang" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Money" Type="float" />
+    <Property Name="TypeOder" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblRegister">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="250" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="GroupBy" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="R_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="R_Active" Type="bit" />
+    <Property Name="R_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="R_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSepending">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdNhan" Type="int" />
+    <Property Name="S_NewDay" Type="date" />
+    <Property Name="S_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="S_NhanSuId" Type="int" />
+    <Property Name="S_Active" Type="bit" />
+    <Property Name="S_Content" Type="nvarchar" MaxLength="250" />
+    <Property Name="S_Note" Type="nvarchar" MaxLength="50" />
+    <Property Name="S_Money" Type="float" />
+  </EntityType>
+  <EntityType Name="tblServicies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="S_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="S_Active" Type="bit" />
+    <Property Name="S_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="S_Money" Type="float" />
+  </EntityType>
+  <EntityType Name="tblSlider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SLi_Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="SLi_Content" Type="nvarchar" MaxLength="550" />
+    <Property Name="SLi_Active" Type="bit" />
+    <Property Name="SLi_Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tblStaffInEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="E_NumberStar_View1" Type="int" />
+    <Property Name="E_NumberStar_Admin" Type="int" />
+    <Property Name="E_Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="E_ImageList" Type="nvarchar" MaxLength="550" />
+    <Property Name="E_Details" Type="text" />
+    <Property Name="E_Money" Type="float" />
+    <Property Name="E_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStarOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="SO_NumberStar" Type="int" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TypeEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TE_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="TE_Active" Type="bit" />
+    <Property Name="TE_Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="TE_Admin_Staff" Type="int" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec">
+    <End Role="tbl_Loai_Ca_Lam_Viec" Type="Self.tbl_Loai_Ca_Lam_Viec" Multiplicity="0..1" />
+    <End Role="tbl_CaLamViec" Type="Self.tbl_CaLamViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Loai_Ca_Lam_Viec">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_CaLamViec">
+        <PropertyRef Name="LoaiCaLamViecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblColecttion_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+    <End Role="tblColecttion" Type="Self.tblColecttion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblColecttion">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOrderDetail_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblOrderDetail" Type="Self.tblOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblOrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRegister_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="1" />
+    <End Role="tblRegister" Type="Self.tblRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRegister">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRoom_tblCategories">
+    <End Role="tblCategories" Type="Self.tblCategories" Multiplicity="0..1" />
+    <End Role="tblRoom" Type="Self.tblRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRoom">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSepending_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="0..1" />
+    <End Role="tblSepending" Type="Self.tblSepending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblSepending">
+        <PropertyRef Name="IdNhan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffInEmployee_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="1" />
+    <End Role="tblStaffInEmployee" Type="Self.tblStaffInEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaffInEmployee">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStarOrder_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblStarOrder" Type="Self.tblStarOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStarOrder">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Bill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Bill_Chiitet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Close_shift" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DOANH_THU_CA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DOANH_THU_NAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DOANH_THU_NGAY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="Lay_Employee_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Lay_rom_hoat_dong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LEPVC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="map_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="mediumStar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="mediumStar12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NhatKy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NumberOfServings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Order_Admin_Categories_0" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Order_Admin_Employee_0" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Order_Admin_Service_0" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RantingStarEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SqlQueryNotificationStoredProcedure_473aab5c_708a_415e_a0ca_637768959ba0" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="SqlQueryNotificationStoredProcedure-473aab5c-708a-415e-a0ca-637768959ba0" />
+  <Function Name="Staff_client" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Data_MassageModelStoreContainer">
+    <EntitySet Name="BDang_Ky" EntityType="Self.BDang_Ky" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BLich_Su_Vao_Phan_Mem" EntityType="Self.BLich_Su_Vao_Phan_Mem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BLog_Business_TenQuyen" EntityType="Self.BLog_Business_TenQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BLog_Permission_BCacQuenCT" EntityType="Self.BLog_Permission_BCacQuenCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discount_Code" EntityType="Self.Discount_Code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Footer_client" EntityType="Self.Footer_client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrantPermission" EntityType="Self.GrantPermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phieu_thu" EntityType="Self.phieu_thu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SettingAdmin" EntityType="Self.SettingAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_CaLamViec" EntityType="Self.tbl_CaLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Loai_Ca_Lam_Viec" EntityType="Self.tbl_Loai_Ca_Lam_Viec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Phieu_Chi" EntityType="Self.tbl_Phieu_Chi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCategories" EntityType="Self.tblCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblColecttion" EntityType="Self.tblColecttion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCheckin" EntityType="Self.tblCheckin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNotification" EntityType="Self.tblNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOrderDetail" EntityType="Self.tblOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRegister" EntityType="Self.tblRegister" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRoom" EntityType="Self.tblRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSepending" EntityType="Self.tblSepending" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblServicies" EntityType="Self.tblServicies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSlider" EntityType="Self.tblSlider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStaffInEmployee" EntityType="Self.tblStaffInEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStarOrder" EntityType="Self.tblStarOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeEmployee" EntityType="Self.TypeEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec" Association="Self.FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec">
+      <End Role="tbl_Loai_Ca_Lam_Viec" EntitySet="tbl_Loai_Ca_Lam_Viec" />
+      <End Role="tbl_CaLamViec" EntitySet="tbl_CaLamViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblColecttion_tblOrder" Association="Self.FK_tblColecttion_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblColecttion" EntitySet="tblColecttion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOrderDetail_tblOrder" Association="Self.FK_tblOrderDetail_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblOrderDetail" EntitySet="tblOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRegister_tblEmployees" Association="Self.FK_tblRegister_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblRegister" EntitySet="tblRegister" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRoom_tblCategories" Association="Self.FK_tblRoom_tblCategories">
+      <End Role="tblCategories" EntitySet="tblCategories" />
+      <End Role="tblRoom" EntitySet="tblRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSepending_tblEmployees" Association="Self.FK_tblSepending_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblSepending" EntitySet="tblSepending" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffInEmployee_tblEmployees" Association="Self.FK_tblStaffInEmployee_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblStaffInEmployee" EntitySet="tblStaffInEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStarOrder_tblOrder" Association="Self.FK_tblStarOrder_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblStarOrder" EntitySet="tblStarOrder" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

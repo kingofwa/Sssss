@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+    var list_category_oder = ViewData["list_category_oder"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.Order_Admin_Categories_0_Result>;
+    var list_roomm = ViewData["list_roomm"] as List<ProjectMassage_QA.Areas.Admin.Models.ViewModel.Rom_bill_view>;
+}
+<div class="card card-primary defaul_QA " style="margin-bottom:10px;">
+    <div class="card-header maume" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
+        <h6 class="card-title " style="font-size: 17px;">
+            HÓA ĐƠN
+            <i onclick="Hide_Oder_Right()" class="fas fa-angle-double-right"></i>
+        </h6>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="thu gọn">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body dowl black QA_padding0 direct-chat-messages cao">
+        <table class="table QA_table_bill " style="font-size: 12px;">
+            <tr class="mauchu">
+                <th><i class="fas fa-cart-arrow-down" style="width:5%;"></i></th>
+                <th>Mã hóa đơn</th>
+                <th>Phòng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tbody style="font-size: 12px;">
+                @foreach (var item in list_roomm)
+                {
+                    <tr id="hide_bill_@item.Id" class="mauchu">
+                        <td class="hideorshow">
+                            <label class="containerr">
+                                <input type="radio" class="QA_CheckOder" name="checkedhoadon" value="">
+                                <span class="checkmark le" data-id="@item.Id"></span>
+                            </label>
+                        </td>
+                        <td>@item.O_number</td>
+                        <td><b>@item.Room</b></td>
+                        <td><b style="color:red;">@String.Format("{0:#,###,###}", @item.Total)</b></td>
+                    </tr>
+                }
+            </tbody>
+            <tbody style="font-size: 12px;" id="apendbill" class="mauchu">
+
+            </tbody>
+        </table>
+    </div>
+</div>

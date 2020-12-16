@@ -1,0 +1,167 @@
+﻿@{
+    var list_typeemployee = ViewData["list_typeemployee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.TypeEmployee>;
+}
+
+<div class="modal fade" id="Modal_employee">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header maume" >
+                <h5 class="card-title text-white text-uppercase">Nhân viên</h5>
+                <span class="text-danger" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="QA_modal-body black" style="padding:0px;background:white;">
+                <div class="card card-primary card-outline card-outline-tabs">
+                    <div class="card-header p-0 border-bottom-0">
+                        <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-uppercase text-primary" id="employee_defaul">Nhân viên</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase" id="employee_staff">Nhân viên phục vụ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="QA_card-body black mauchu">
+                        <div class="tab-content" id="custom-tabs-four-tabContent">
+                            <div class="d-block" id="custom-tabs-four-home">
+                                <form id="QA_admin_Modal_work_form " class="row" action="">
+                                    <input type="hidden" id="Id_employee" value="0">
+                                    <div class="form-group col-6">
+                                        <label for="">Họ & Tên<code>*</code></label>
+                                        <input type="text" id="E_Name" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Số điện thoại</label>
+                                        <input type="text" id="E_Phone" class="form-control">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <label for="">Mã nhân viên<code>*</code></label>
+                                        <input type="text" value="00" id="E_Code" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Bộ phận<code>*</code></label>
+                                        <select id="TypeEmployeeId" class="QA_form-control">
+                                            @foreach (var item in list_typeemployee.Where(X => X.TE_Admin_Staff == 1).ToList())
+                                            {
+                                                <option value="@item.Id">@item.TE_Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Ngày vào<code>*</code></label>
+                                        <input type="date" id="E_Dayin" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Ngày hết(HĐ)<code>*</code></label>
+                                        <input type="date" id="E_Dayout" class="form-control">
+                                    </div>
+                                    <div class="form-group col-8">
+                                        <label for="">Địa chỉ<code>*</code></label>
+                                        <input type="text" id="E_Address" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">CMDN<code>*</code></label>
+                                        <input type="text" id="E_CMND" class="form-control">
+                                    </div>
+
+                                    <div class="form-group col-8">
+                                        <label for="">Ghi chú</label>
+                                        <textarea id="E_Note" cols="10" rows="1" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Hình</label>
+                                        <p><a class="btn btn-primary btn-sm d-block" onclick="BrowseServer()">Chọn ảnh</a></p>
+                                        <input type="hidden" id="E_Image2" />
+                                        <p id="show_image2"></p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="d-none" id="custom-tabs-four-profile">
+                                <form id="QA_admin_Modal_work_form2" class="row" action="">
+                                    <input type="hidden" id="Id_employee1" value="0">
+                                    <div class="form-group col-8">
+                                        <label for="">Họ & Tên<code>*</code> <small id="showloi"> </small></label>
+                                        <input type="text" id="ES_Name1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Số điện thoại<code>*</code></label>
+                                        <input type="number" id="ES_Phone1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="">Tiền nhân viên <code>*</code><small id="tiennhanvien"> </small></label>
+                                        <input type="number" min="0" id="ES_Money1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="">Mã nhân viên <code>*</code><small id="manhanvien"> </small></label>
+                                        <input type="text" id="ES_Code1" class="form-control" onchange="check_code_employee()">
+                                        <input type="hidden" id="check_trung" value="0"/>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Bộ phận<code>*</code></label>
+                                        <select id="TypeEmployeeId1" class="QA_form-control">
+                                            @foreach (var item in list_typeemployee.Where(X => X.TE_Admin_Staff == 0).ToList())
+                                            {
+                                                <option value="@item.Id">@item.TE_Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Ngày vào<code>*</code></label>
+                                        <input type="date" id="ES_Dayin1" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Ngày hết(HĐ)<code>*</code></label>
+                                        <input type="date" id="ES_Dayout1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-8">
+                                        <label for="">Địa chỉ<code>*</code></label>
+                                        <input type="text" id="ES_Address1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">CMDN</label>
+                                        <input type="number" id="ES_CMND1" class="form-control">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Cho sao</label>
+                                        <input type="number" max="5" min="1" value="5" id="ES_NumberStar_View1" class="form-control" onchange="return_number()">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Hình đại diện</label>
+                                        <p><a class="btn btn-primary btn-sm d-block" onclick="BrowseServer_staff()">Chọn hình</a></p>
+                                        <input type="hidden" id="ES_Image1" />
+                                        <p id="show_image_staff1"></p>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="">Hình chi tiết</label>
+                                        <p><a class="btn btn-primary btn-sm d-block" onclick="BrowseServer_list_staff()">Chọn hình</a></p>
+                                        <input type="hidden" id="ES_ImageList1" value="" />
+                                        <p id="show_image_staff_list1"><i class="fa fa-minus"></i></p>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <textarea id="ES_Detail1" cols="10" rows="1" class="form-control" placeholder="Chi tiết..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-room justify-content-between d-inline-block black float-right">
+                                <button type="button" id="save_employee" class="btn btn-xs btn-primary  m-2"><i class="fa fa-save"></i> Lưu</button>
+                                <button class="btn btn-xs btn-danger float-right  m-2" data-dismiss="modal"><i class="fa fa-times"></i> Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <input type="hidden" id="add_defaul" value="1"/>
+            @*<div class="modal-room justify-content-between d-inline-block black">
+                <button type="button" id="save_employee" class="btn btn-xs btn-primary float-right mt-2 m-2"><i class="fa fa-save"></i> Lưu</button>
+                <button class="btn btn-xs btn-danger float-right mt-2 m-2" data-dismiss="modal"><i class="fa fa-times"></i> Hủy</button>
+            </div>*@
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
+   
+    

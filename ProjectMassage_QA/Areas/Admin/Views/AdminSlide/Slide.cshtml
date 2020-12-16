@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Slides";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_slide = ViewData["list_slide"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblSlider>;
+}
+
+<div class="QA_warapper-content">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-left mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="Modal_slide" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <div class="row" id="show-body">
+                        @foreach (var item in list_slide)
+                        {
+                            <div id="row_@item.Id" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card defaul_QA" >
+                                    <div class="card-header maume mauchu border-bottom-0" id="name_@item.Id">@item.SLi_Name </div>
+                                    <div class="card-body   pt-0 row">
+                                        <div class="col-6"><p id="content_@item.Id">+  @item.SLi_Content</p></div>
+                                        <div class="col-6 text-center" id="del_imgae_@item.Id"><img src="@item.SLi_Image" alt="QA_slide" class="img-fluid"></div>
+                                    </div>
+                                    <div class="card-room">
+                                        <div class="text-right">
+                                            @if (@item.SLi_Active == true)
+                                            {
+                                                <a id="color_status_@item.Id" class="btn btn-xs btn-success" onclick='Slide(@item.Id)'> Kích hoạt </a>
+                                            }
+                                            else
+                                            {
+                                                <a id="color_status_@item.Id" class="btn btn-xs btn-success " onclick='Slide(@item.Id)'> Khóa </a>
+                                            }
+                                            <a class="btn btn-xs btn-warning text-white" onclick='edit_slide(@item.Id)'><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                                            <a class="btn btn-xs btn-danger text-white" onclick='delete_slide(@item.Id)'><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div><!-- het col-md-12 slide -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content--->
+@RenderPage("modal/AddSlide.cshtml")

@@ -1,0 +1,49 @@
+﻿@*@model ProjectMassage_QA.Areas.Admin.Models.FW.BLog_Permission_BCacQuenCT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h5>Are you sure you want to delete this?</h5>
+<div>
+    <h4>BLog_Permission_BCacQuenCT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PermissionName_TenQuyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermissionName_TenQuyen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>*@

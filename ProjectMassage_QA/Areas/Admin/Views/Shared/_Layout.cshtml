@@ -1,0 +1,134 @@
+﻿<!--/**
+* --------------------------------------------
+*  QUOC ANH TECH
+*  DEV: King Of War , VU VAN TIEP.
+* --------------------------------------------
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Tech</title>
+    <!-------------------------QA Font Awesome ---------------------------->
+    <link rel="stylesheet" href="/public_QA/admin/QA_plugins/fontawesome-free/css/all.min.css">
+    <!-------------------------QA Tempusdominus Bootstrap 4---------QA iCheck------------------->
+    <link rel="stylesheet" href="/public_QA/admin/QA_plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="/public_QA/admin/QA_plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-------------------------QA LOading css -------QA Show menu css------QA Theme style-------QA CSS-------->
+    <link href="~/Public_QA/Admin/css/QA_admin.css" rel="stylesheet" />
+    <link href="~/Public_QA/Admin/QA_plugins/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public_QA/admin/QA_dist/css/loadding.css">
+    <link rel="stylesheet" href="/public_QA/admin/QA_dist/css/showmenu.css">
+    <link href="~/Public_QA/Admin/QA_dist/css/screen_laptop.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public_QA/admin/QA_dist/css/qatech.min.css">
+    <link rel="stylesheet" href="/public_QA/admin/QA_dist/css/qatech.css">
+    <!-------------------------QA overlayScrollbars------------------>
+    <link rel="stylesheet" href="/public_QA/admin/QA_plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link href="~/content/toastr.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed " id="css_sofware" onload="myFunction()">
+    <div class="wrapper animate-bottom" id="content">
+        <input type="hidden" data-color="@Session["chang_color"]" id="user_hide" name="name" value="@Session["userId"]" />
+        <!--QA Navbar -->
+        @RenderPage("NavBar.cshtml")
+        <!--QA /.navbar -->
+        <!--QA Main LeftMenu Container -->
+        @RenderPage("LeftMenu.cshtml")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /QA.content-wrapper -->
+    </div>
+
+    <!---------------------------QA jQuery -------jQuery UI phien ban 1.11.4 -------------------->
+    <script src="/public_QA/admin/QA_plugins/jquery/jquery.min.js"></script>
+    <script src="/public_QA/admin/QA_plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!--QA Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!--QA Bootstrap 4 -->
+    <script src="/public_QA/admin/QA_plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--QA moment js -->
+    <script src="/public_QA/admin/QA_plugins/moment/moment.min.js"></script>
+    <!--QA Tempusdominus Bootstrap 4 -->
+    <script src="/public_QA/admin/QA_plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!--QA overlayScrollbars -->
+    <script src="/public_QA/admin/QA_plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!--QA App -->
+    <script src="/public_QA/admin/QA_dist/js/quocanhtech.js"></script>
+    <!--QA Show menu  -->
+    <script src="/public_QA/admin/QA_dist/js/pages/show_menu.js"></script>
+    <script src="~/Public_QA/Admin/QA_plugins/ckfinder/ckfinder.js"></script>
+    <!--QA CustommerODER -->
+    <script src="/public_QA/admin/QA_dist/js/QA_home_admin.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/CustommerOder.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/function.js"></script>
+    <!--QA category -->
+    <script src="/public_QA/admin/QA_dist/js/pages/QA_admin.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/pages/QA_warkshift.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/pages/QA_categories.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/pages/QA_service.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/pages/QA_room.js"></script>
+    <!--QA Employee -->
+    <script src="/public_QA/admin/QA_dist/js/employee/QA_category_employee.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/employee/QA_employee.js"></script>
+    <!--QA Setting -->
+    <script src="/public_QA/admin/QA_dist/js/setting/slide.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/setting/notification.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/setting/settingadmin.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/setting/discount.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/setting/registeradmin.js"></script>
+    <script src="/public_QA/admin/QA_dist/js/setting/footer.js"></script>
+
+    <script src="~/Public_QA/Admin/QA_dist/js/GroupOfRights/Add_Account_User.js"></script>
+    <!--doanh thu -->
+    <script src="~/Public_QA/Admin/QA_dist/js/Revenue/thutien.js"></script>
+    <script src="~/Public_QA/Admin/QA_dist/js/Revenue/chitien.js"></script>
+    <!--Datatable -->
+    <script src="~/Public_QA/Admin/QA_plugins/DataTables-1.10.22/js/jquery.dataTables.min.js"></script>
+    @*<script src="~/scripts/toastr.min.js"></script>*@
+    <script src="~/scripts/toastr.js"></script>
+    @*<script src="~/scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/Hubs/"></script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            var theme = $("#customSwitch").val();
+            chang_color(theme);
+            var colorr = $("#user_hide").data('color');
+            if (colorr != "") {
+                var array = colorr.split("|");
+                CHANGE_SETTING(array[0], array[1],
+                    array[2], array[3], array[4], array[5],
+                    array[6], array[7], array[8], array[9],
+                    array[10], array[11], array[12], array[13], array[14], array[15], array[16]
+                );
+            }
+
+            var full_screen = $("#screen_QA").val();
+            Chang_Screen(full_screen);
+        });
+    </script>
+    <script>
+        var myVar;
+        function myFunction() {
+            myVar = setTimeout(showPage, 800);
+        }
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }
+    </script>
+    <div id="loader">
+        <img src="~/ImageData/RzVc.gif" style="margin:0;padding:0;" />
+    </div>
+</body>
+</html>
+@*<script src="~/Public_QA/Admin/QA_plugins/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('ES_Detail');
+    </script>*@

@@ -1,0 +1,107 @@
+﻿@{
+    Layout = null;
+    var list_category_oder = ViewData["list_category_oder"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.LEPVC_Result>;
+    var list_service_oder = ViewData["list_service_oder"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.Order_Admin_Service_0_Result>;
+    var list_employeestaff_oder = ViewData["list_employeestaff_oder"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.Order_Admin_Employee_0_Result>;
+}
+<div class="card card-primary defaul_QA " style="margin-bottom:10px;">
+    <div class="card-header maume" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
+        <h4 class="card-title">
+            ODER
+            <i class="fas fa-angle-double-right" onclick="Hide_Oder_Right()"></i>
+        </h4>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="thu gọn">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body black QA_padding0 direct-chat-messages cao">
+        <table class="table QA_table_oder " style="font-size: 12px;">
+            <tr class="mauchu">
+                <th scope="col"><i class="fa fa-tasks"></i></th>
+                <th scope="col">Dịch vụ</th>
+                <th scope="col">Thể loại</th>
+                <th scope="col">Nhân viên</th>
+                <th scope="col">Giảm</th>
+                <th scope="col"><i style="color: green;font-size:15px;" class="fa fa-comments" aria-hidden="true"></i></th>
+            </tr>
+            <tbody id="oder_new_client_pvc" class="mauchu">
+
+            </tbody>
+            <tbody style="font-size: 12px;" class="mauchu">
+                @foreach (var item in list_category_oder.OrderByDescending(x => x.Id).ToList())
+                {
+                    <tr id="xoasaukhicheckinxong_@item.Id">
+                        <td class="position-relative">
+                            <span class="new_oder_home"><img src="~/ImageData/new.gif" alt="QA_TECH"/></span>
+                            <label class="containerr">
+                                <input type="radio" class="QA_CheckOder" id="IdService_@item.Id" data-name="@item.Id_tang" data-id="@item.Id_service" name="checkedoder" value="@item.Id">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>
+                            @foreach (var item1 in list_service_oder.Where(x => x.OrderId == item.OrderId).ToList())
+                            {
+                                <span id="IdCate_@item.Id" data-name="@item1.Id_tang" data-id="@item1.Id"><b>@item1.S_Name</b></span>
+                            }
+                        </td>
+                        @if (item.S_Name == null)
+                        {
+                            <td></td>
+                        }
+                        else
+                        {
+                            <td><b>@item.S_Name</b></td>
+                        }
+
+                        <td>
+                            @{
+                        var listId = "";
+                        var id_tang = "";
+                        foreach (var item1 in list_employeestaff_oder.Where(x => x.OrderId == item.OrderId).ToList())
+                        {
+                            if (listId == "")
+                            {
+                                listId = item1.EmployeeId.ToString();
+                                id_tang = item1.Id_tang.ToString();
+                            }
+                            else
+                            {
+                                listId = listId + "|" + item1.EmployeeId;
+                                id_tang = id_tang + "|" + item1.Id_tang;
+                            }
+                            <span><b>@item1.E_Name</b></span>
+                        }
+                            }
+                        </td>
+                        @if (@item.Sale_code != null)
+                        {
+                            <td><b class="text-right text-danger">@item.Sale_code%</b></td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td colspan="1">
+                            <input type="hidden" data-id="@listId" data-name="@id_tang" id="hide_@item.Id" value="0">
+                            <i style="color: green;font-size:13px;" class="fa fa-plus-circle" id="show_details_@item.Id" onclick="ShowDetails(@item.Id)"></i>
+                        </td>
+                    </tr>
+                    <tr id="xoasaukhicheckinxong1_@item.Id">
+                        <td colspan="6" class="border-0">
+                            <blockquote id="HideDetails_@item.Id" class="quote-secondary d-none text-left text-xs" style="border-left: 2px solid red; margin: 0px 0px 0px 6px; padding-bottom: 5px;">
+                                <p class="mb-0 pl-3">@item.Note</p>
+                                <small class="ml-3 m-0 badge badge-warning ">Ngày:@item.DayNew.GetValueOrDefault().ToString("dd-MM-yyyy") | Mã oder: @item.O_number </small>
+                            </blockquote>
+                            <input type="hidden" id="maoder" value="@item.O_number">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

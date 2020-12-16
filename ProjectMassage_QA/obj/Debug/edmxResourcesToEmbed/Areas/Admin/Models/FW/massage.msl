@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Data_MassageModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="BDang_Ky">
+      <EntityTypeMapping TypeName="Data_MassageModel.BDang_Ky">
+        <MappingFragment StoreEntitySet="BDang_Ky">
+          <ScalarProperty Name="ID_dang_Ky" ColumnName="ID_dang_Ky" />
+          <ScalarProperty Name="Dangkycongty" ColumnName="Dangkycongty" />
+          <ScalarProperty Name="tencongtychuthuong" ColumnName="tencongtychuthuong" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="TenGiamdocky" ColumnName="TenGiamdocky" />
+          <ScalarProperty Name="Tenketoantruong" ColumnName="Tenketoantruong" />
+          <ScalarProperty Name="Tenthuquy" ColumnName="Tenthuquy" />
+          <ScalarProperty Name="Thu_Kho" ColumnName="Thu_Kho" />
+          <ScalarProperty Name="Masothue" ColumnName="Masothue" />
+          <ScalarProperty Name="Dienthoai" ColumnName="Dienthoai" />
+          <ScalarProperty Name="Sotaikhoan" ColumnName="Sotaikhoan" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Tainganhang" ColumnName="Tainganhang" />
+          <ScalarProperty Name="SoFax" ColumnName="SoFax" />
+          <ScalarProperty Name="NamTaichinh" ColumnName="NamTaichinh" />
+          <ScalarProperty Name="Diachi_VanPhong" ColumnName="Diachi_VanPhong" />
+          <ScalarProperty Name="Motanganhnghe" ColumnName="Motanganhnghe" />
+          <ScalarProperty Name="TenTiengAnh" ColumnName="TenTiengAnh" />
+          <ScalarProperty Name="Songaythuno" ColumnName="Songaythuno" />
+          <ScalarProperty Name="Ngayhoachtoan" ColumnName="Ngayhoachtoan" />
+          <ScalarProperty Name="Ngaykethuchoachtoan" ColumnName="Ngaykethuchoachtoan" />
+          <ScalarProperty Name="Muc_dong_BH" ColumnName="Muc_dong_BH" />
+          <ScalarProperty Name="Ngay_Cong" ColumnName="Ngay_Cong" />
+          <ScalarProperty Name="Lam_CN" ColumnName="Lam_CN" />
+          <ScalarProperty Name="DK_Open" ColumnName="DK_Open" />
+          <ScalarProperty Name="DK_Close" ColumnName="DK_Close" />
+          <ScalarProperty Name="Thoi_Gian_Check_Int" ColumnName="Thoi_Gian_Check_Int" />
+          <ScalarProperty Name="Thoi_Gian_Ca" ColumnName="Thoi_Gian_Ca" />
+          <ScalarProperty Name="Chu_y" ColumnName="Chu_y" />
+          <ScalarProperty Name="Thong_bao" ColumnName="Thong_bao" />
+          <ScalarProperty Name="thank_custommer" ColumnName="thank_custommer" />
+          <ScalarProperty Name="phuphi" ColumnName="phuphi" />
+          <ScalarProperty Name="thuevat" ColumnName="thuevat" />
+          <ScalarProperty Name="xacnhan" ColumnName="xacnhan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLich_Su_Vao_Phan_Mem">
+      <EntityTypeMapping TypeName="Data_MassageModel.BLich_Su_Vao_Phan_Mem">
+        <MappingFragment StoreEntitySet="BLich_Su_Vao_Phan_Mem">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nhan_su_ID" ColumnName="Nhan_su_ID" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Ngay_vao" ColumnName="Ngay_vao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLog_Business_TenQuyen">
+      <EntityTypeMapping TypeName="Data_MassageModel.BLog_Business_TenQuyen">
+        <MappingFragment StoreEntitySet="BLog_Business_TenQuyen">
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLog_Permission_BCacQuenCT">
+      <EntityTypeMapping TypeName="Data_MassageModel.BLog_Permission_BCacQuenCT">
+        <MappingFragment StoreEntitySet="BLog_Permission_BCacQuenCT">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="PermissionName_TenQuyen" ColumnName="PermissionName_TenQuyen" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="Quyencapcao" ColumnName="Quyencapcao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discount_Code">
+      <EntityTypeMapping TypeName="Data_MassageModel.Discount_Code">
+        <MappingFragment StoreEntitySet="Discount_Code">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_discount" ColumnName="Name_discount" />
+          <ScalarProperty Name="Sale_code" ColumnName="Sale_code" />
+          <ScalarProperty Name="Discount_code_view" ColumnName="Discount_code_view" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Footer_client">
+      <EntityTypeMapping TypeName="Data_MassageModel.Footer_client">
+        <MappingFragment StoreEntitySet="Footer_client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_f" ColumnName="Name_f" />
+          <ScalarProperty Name="Diachi_f" ColumnName="Diachi_f" />
+          <ScalarProperty Name="Sodienthoai" ColumnName="Sodienthoai" />
+          <ScalarProperty Name="F_Note" ColumnName="F_Note" />
+          <ScalarProperty Name="F_Active" ColumnName="F_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrantPermission">
+      <EntityTypeMapping TypeName="Data_MassageModel.GrantPermission">
+        <MappingFragment StoreEntitySet="GrantPermission">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phieu_thu">
+      <EntityTypeMapping TypeName="Data_MassageModel.phieu_thu">
+        <MappingFragment StoreEntitySet="phieu_thu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nguoinoptien" ColumnName="nguoinoptien" />
+          <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sotien_thu" ColumnName="sotien_thu" />
+          <ScalarProperty Name="noidungthu" ColumnName="noidungthu" />
+          <ScalarProperty Name="Note_thu" ColumnName="Note_thu" />
+          <ScalarProperty Name="nguoinop" ColumnName="nguoinop" />
+          <ScalarProperty Name="nguoilap" ColumnName="nguoilap" />
+          <ScalarProperty Name="ngaylap" ColumnName="ngaylap" />
+          <ScalarProperty Name="sochungtu_thu" ColumnName="sochungtu_thu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SettingAdmin">
+      <EntityTypeMapping TypeName="Data_MassageModel.SettingAdmin">
+        <MappingFragment StoreEntitySet="SettingAdmin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="thoigian" ColumnName="thoigian" />
+          <ScalarProperty Name="thoigianca" ColumnName="thoigianca" />
+          <ScalarProperty Name="fontchu" ColumnName="fontchu" />
+          <ScalarProperty Name="cochu" ColumnName="cochu" />
+          <ScalarProperty Name="chuy" ColumnName="chuy" />
+          <ScalarProperty Name="mauonline" ColumnName="mauonline" />
+          <ScalarProperty Name="maucokhach" ColumnName="maucokhach" />
+          <ScalarProperty Name="maucho" ColumnName="maucho" />
+          <ScalarProperty Name="thongbao" ColumnName="thongbao" />
+          <ScalarProperty Name="maunhanvienonline" ColumnName="maunhanvienonline" />
+          <ScalarProperty Name="maunhanviencokhach" ColumnName="maunhanviencokhach" />
+          <ScalarProperty Name="colorbar" ColumnName="colorbar" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="mauchu" ColumnName="mauchu" />
+          <ScalarProperty Name="heightContent" ColumnName="heightContent" />
+          <ScalarProperty Name="widthContent" ColumnName="widthContent" />
+          <ScalarProperty Name="heightRight" ColumnName="heightRight" />
+          <ScalarProperty Name="widthRight" ColumnName="widthRight" />
+          <ScalarProperty Name="hienthichuthich" ColumnName="hienthichuthich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Data_MassageModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CaLamViec">
+      <EntityTypeMapping TypeName="Data_MassageModel.tbl_CaLamViec">
+        <MappingFragment StoreEntitySet="tbl_CaLamViec">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoaiCaLamViecId" ColumnName="LoaiCaLamViecId" />
+          <ScalarProperty Name="NameEmployee" ColumnName="NameEmployee" />
+          <ScalarProperty Name="FirtTime" ColumnName="FirtTime" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Id_giao" ColumnName="Id_giao" />
+          <ScalarProperty Name="Id_nhan" ColumnName="Id_nhan" />
+          <ScalarProperty Name="Tong_tien_thu_trong_ca" ColumnName="Tong_tien_thu_trong_ca" />
+          <ScalarProperty Name="Tien_ca_truoc_ban_giao" ColumnName="Tien_ca_truoc_ban_giao" />
+          <ScalarProperty Name="Tong_tien_mat" ColumnName="Tong_tien_mat" />
+          <ScalarProperty Name="Tong_tien_cuoi_ca" ColumnName="Tong_tien_cuoi_ca" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Note_shift" ColumnName="Note_shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Loai_Ca_Lam_Viec">
+      <EntityTypeMapping TypeName="Data_MassageModel.tbl_Loai_Ca_Lam_Viec">
+        <MappingFragment StoreEntitySet="tbl_Loai_Ca_Lam_Viec">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirtTime" ColumnName="FirtTime" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Phieu_Chi">
+      <EntityTypeMapping TypeName="Data_MassageModel.tbl_Phieu_Chi">
+        <MappingFragment StoreEntitySet="tbl_Phieu_Chi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nguoinhan" ColumnName="nguoinhan" />
+          <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sotien_chi" ColumnName="sotien_chi" />
+          <ScalarProperty Name="noidungchi" ColumnName="noidungchi" />
+          <ScalarProperty Name="Note_chi" ColumnName="Note_chi" />
+          <ScalarProperty Name="chuky_nguoinhan" ColumnName="chuky_nguoinhan" />
+          <ScalarProperty Name="nguoilap" ColumnName="nguoilap" />
+          <ScalarProperty Name="ngaylap" ColumnName="ngaylap" />
+          <ScalarProperty Name="sochungtu_chi" ColumnName="sochungtu_chi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_User">
+      <EntityTypeMapping TypeName="Data_MassageModel.tbl_User">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Chucvu" ColumnName="Chucvu" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+          <ScalarProperty Name="Email_User" ColumnName="Email_User" />
+          <ScalarProperty Name="Pass_User" ColumnName="Pass_User" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="U_Status" ColumnName="U_Status" />
+          <ScalarProperty Name="Dark_Light_theme" ColumnName="Dark_Light_theme" />
+          <ScalarProperty Name="Full_full_screen" ColumnName="Full_full_screen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCategories">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblCategories">
+        <MappingFragment StoreEntitySet="tblCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_Active" ColumnName="C_Active" />
+          <ScalarProperty Name="C_Note" ColumnName="C_Note" />
+          <ScalarProperty Name="C_Money" ColumnName="C_Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblColecttion">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblColecttion">
+        <MappingFragment StoreEntitySet="tblColecttion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="CL_NewDay" ColumnName="CL_NewDay" />
+          <ScalarProperty Name="CL_Number" ColumnName="CL_Number" />
+          <ScalarProperty Name="CL_NhanSuId" ColumnName="CL_NhanSuId" />
+          <ScalarProperty Name="CL_Active" ColumnName="CL_Active" />
+          <ScalarProperty Name="CL_Content" ColumnName="CL_Content" />
+          <ScalarProperty Name="CL_Note" ColumnName="CL_Note" />
+          <ScalarProperty Name="CL_Money" ColumnName="CL_Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCheckin">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblCheckin">
+        <MappingFragment StoreEntitySet="tblCheckin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirtDayCheckin" ColumnName="FirtDayCheckin" />
+          <ScalarProperty Name="FirtHourCheckin" ColumnName="FirtHourCheckin" />
+          <ScalarProperty Name="LastDayCheckin" ColumnName="LastDayCheckin" />
+          <ScalarProperty Name="LastHourCheckin" ColumnName="LastHourCheckin" />
+          <ScalarProperty Name="CategoryCheckin" ColumnName="CategoryCheckin" />
+          <ScalarProperty Name="ServiceCheckin" ColumnName="ServiceCheckin" />
+          <ScalarProperty Name="EmployeeStaffCheckin" ColumnName="EmployeeStaffCheckin" />
+          <ScalarProperty Name="NoteCheckin" ColumnName="NoteCheckin" />
+          <ScalarProperty Name="ID_RoomCheckin" ColumnName="ID_RoomCheckin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblEmployees">
+        <MappingFragment StoreEntitySet="tblEmployees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+          <ScalarProperty Name="TypeEmployeeId" ColumnName="TypeEmployeeId" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Phone" ColumnName="E_Phone" />
+          <ScalarProperty Name="E_CMND" ColumnName="E_CMND" />
+          <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+          <ScalarProperty Name="E_Dayin" ColumnName="E_Dayin" />
+          <ScalarProperty Name="E_Dayout" ColumnName="E_Dayout" />
+          <ScalarProperty Name="E_Note" ColumnName="E_Note" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="E_Active" ColumnName="E_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNotification">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblNotification">
+        <MappingFragment StoreEntitySet="tblNotification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="N_Content" ColumnName="N_Content" />
+          <ScalarProperty Name="N_Show" ColumnName="N_Show" />
+          <ScalarProperty Name="N_Note" ColumnName="N_Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrder">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblOrder">
+        <MappingFragment StoreEntitySet="tblOrder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirtDayCheckin" ColumnName="FirtDayCheckin" />
+          <ScalarProperty Name="FirtHourCheckin" ColumnName="FirtHourCheckin" />
+          <ScalarProperty Name="LastDayCheckin" ColumnName="LastDayCheckin" />
+          <ScalarProperty Name="LastHourCheckin" ColumnName="LastHourCheckin" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Chay" ColumnName="Chay" />
+          <ScalarProperty Name="Ca_lam_Id" ColumnName="Ca_lam_Id" />
+          <ScalarProperty Name="Id_Code_sale" ColumnName="Id_Code_sale" />
+          <ScalarProperty Name="phantramgiam" ColumnName="phantramgiam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrderDetail">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblOrderDetail">
+        <MappingFragment StoreEntitySet="tblOrderDetail">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id_tang" ColumnName="Id_tang" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRegister">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblRegister">
+        <MappingFragment StoreEntitySet="tblRegister">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="GroupBy" ColumnName="GroupBy" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoom">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblRoom">
+        <MappingFragment StoreEntitySet="tblRoom">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="R_Name" ColumnName="R_Name" />
+          <ScalarProperty Name="R_Active" ColumnName="R_Active" />
+          <ScalarProperty Name="R_Note" ColumnName="R_Note" />
+          <ScalarProperty Name="R_Status" ColumnName="R_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSepending">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblSepending">
+        <MappingFragment StoreEntitySet="tblSepending">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdNhan" ColumnName="IdNhan" />
+          <ScalarProperty Name="S_NewDay" ColumnName="S_NewDay" />
+          <ScalarProperty Name="S_Number" ColumnName="S_Number" />
+          <ScalarProperty Name="S_NhanSuId" ColumnName="S_NhanSuId" />
+          <ScalarProperty Name="S_Active" ColumnName="S_Active" />
+          <ScalarProperty Name="S_Content" ColumnName="S_Content" />
+          <ScalarProperty Name="S_Note" ColumnName="S_Note" />
+          <ScalarProperty Name="S_Money" ColumnName="S_Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServicies">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblServicies">
+        <MappingFragment StoreEntitySet="tblServicies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+          <ScalarProperty Name="S_Active" ColumnName="S_Active" />
+          <ScalarProperty Name="S_Note" ColumnName="S_Note" />
+          <ScalarProperty Name="S_Money" ColumnName="S_Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSlider">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblSlider">
+        <MappingFragment StoreEntitySet="tblSlider">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SLi_Image" ColumnName="SLi_Image" />
+          <ScalarProperty Name="SLi_Content" ColumnName="SLi_Content" />
+          <ScalarProperty Name="SLi_Active" ColumnName="SLi_Active" />
+          <ScalarProperty Name="SLi_Name" ColumnName="SLi_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStaffInEmployee">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblStaffInEmployee">
+        <MappingFragment StoreEntitySet="tblStaffInEmployee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="E_NumberStar_View1" ColumnName="E_NumberStar_View1" />
+          <ScalarProperty Name="E_NumberStar_Admin" ColumnName="E_NumberStar_Admin" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="E_ImageList" ColumnName="E_ImageList" />
+          <ScalarProperty Name="E_Details" ColumnName="E_Details" />
+          <ScalarProperty Name="E_Money" ColumnName="E_Money" />
+          <ScalarProperty Name="E_Status" ColumnName="E_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStarOrder">
+      <EntityTypeMapping TypeName="Data_MassageModel.tblStarOrder">
+        <MappingFragment StoreEntitySet="tblStarOrder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SO_NumberStar" ColumnName="SO_NumberStar" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeEmployee">
+      <EntityTypeMapping TypeName="Data_MassageModel.TypeEmployee">
+        <MappingFragment StoreEntitySet="TypeEmployee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TE_Name" ColumnName="TE_Name" />
+          <ScalarProperty Name="TE_Active" ColumnName="TE_Active" />
+          <ScalarProperty Name="TE_Note" ColumnName="TE_Note" />
+          <ScalarProperty Name="TE_Admin_Staff" ColumnName="TE_Admin_Staff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroup">
+      <EntityTypeMapping TypeName="Data_MassageModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bill" FunctionName="Data_MassageModel.Store.Bill">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Bill_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="FirtDayCheckin" ColumnName="FirtDayCheckin" />
+          <ScalarProperty Name="FirtHourCheckin" ColumnName="FirtHourCheckin" />
+          <ScalarProperty Name="LastDayCheckin" ColumnName="LastDayCheckin" />
+          <ScalarProperty Name="LastHourCheckin" ColumnName="LastHourCheckin" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="phantramgiam" ColumnName="phantramgiam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Bill_Chiitet" FunctionName="Data_MassageModel.Store.Bill_Chiitet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Bill_Chiitet_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Close_shift" FunctionName="Data_MassageModel.Store.Close_shift">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Close_shift_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Ca_lam_Id" ColumnName="Ca_lam_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DOANH_THU_CA" FunctionName="Data_MassageModel.Store.DOANH_THU_CA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.DOANH_THU_CA_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirtTime" ColumnName="FirtTime" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="nameusergiao" ColumnName="nameusergiao" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Tien_ca_truoc_ban_giao" ColumnName="Tien_ca_truoc_ban_giao" />
+          <ScalarProperty Name="Note_shift" ColumnName="Note_shift" />
+          <ScalarProperty Name="Tong_tien_cuoi_ca" ColumnName="Tong_tien_cuoi_ca" />
+          <ScalarProperty Name="Tong_tien_mat" ColumnName="Tong_tien_mat" />
+          <ScalarProperty Name="Tong_tien_thu_trong_ca" ColumnName="Tong_tien_thu_trong_ca" />
+          <ScalarProperty Name="Id_nhan" ColumnName="Id_nhan" />
+          <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DOANH_THU_NAM" FunctionName="Data_MassageModel.Store.DOANH_THU_NAM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.DOANH_THU_NAM_Result">
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DOANH_THU_NGAY" FunctionName="Data_MassageModel.Store.DOANH_THU_NGAY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.DOANH_THU_NGAY_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="total_money" ColumnName="total_money" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Lay_Employee_Type" FunctionName="Data_MassageModel.Store.Lay_Employee_Type">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Lay_Employee_Type_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+          <ScalarProperty Name="TypeEmployeeId" ColumnName="TypeEmployeeId" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Phone" ColumnName="E_Phone" />
+          <ScalarProperty Name="E_CMND" ColumnName="E_CMND" />
+          <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+          <ScalarProperty Name="E_Dayin" ColumnName="E_Dayin" />
+          <ScalarProperty Name="E_Dayout" ColumnName="E_Dayout" />
+          <ScalarProperty Name="E_Note" ColumnName="E_Note" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="E_Active" ColumnName="E_Active" />
+          <ScalarProperty Name="Id1" ColumnName="Id1" />
+          <ScalarProperty Name="TE_Name" ColumnName="TE_Name" />
+          <ScalarProperty Name="TE_Active" ColumnName="TE_Active" />
+          <ScalarProperty Name="TE_Note" ColumnName="TE_Note" />
+          <ScalarProperty Name="TE_Admin_Staff" ColumnName="TE_Admin_Staff" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Lay_rom_hoat_dong" FunctionName="Data_MassageModel.Store.Lay_rom_hoat_dong">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Lay_rom_hoat_dong_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="LastHourCheckin" ColumnName="LastHourCheckin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LEPVC" FunctionName="Data_MassageModel.Store.LEPVC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.LEPVC_Result">
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id_tang" ColumnName="Id_tang" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+          <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+          <ScalarProperty Name="S_Money" ColumnName="S_Money" />
+          <ScalarProperty Name="Id_service" ColumnName="Id_service" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Code_sale" ColumnName="Id_Code_sale" />
+          <ScalarProperty Name="Id_sale" ColumnName="Id_sale" />
+          <ScalarProperty Name="Discount_code_view" ColumnName="Discount_code_view" />
+          <ScalarProperty Name="Sale_code" ColumnName="Sale_code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="map_employee" FunctionName="Data_MassageModel.Store.map_employee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.map_employee_Result">
+          <ScalarProperty Name="E_Active" ColumnName="E_Active" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Money" ColumnName="E_Money" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="E_Status" ColumnName="E_Status" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="mediumStar" FunctionName="Data_MassageModel.Store.mediumStar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.mediumStar_Result">
+          <ScalarProperty Name="AVG_Employee" ColumnName="AVG_Employee" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="mediumStar12" FunctionName="Data_MassageModel.Store.mediumStar12">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.mediumStar12_Result">
+          <ScalarProperty Name="aaa" ColumnName="aaa" />
+          <ScalarProperty Name="AVG_Employee" ColumnName="AVG_Employee" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+          <ScalarProperty Name="star" ColumnName="star" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NhatKy" FunctionName="Data_MassageModel.Store.NhatKy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.NhatKy_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="phantramgiam" ColumnName="phantramgiam" />
+          <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NumberOfServings" FunctionName="Data_MassageModel.Store.NumberOfServings">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.NumberOfServings_Result">
+          <ScalarProperty Name="totalNumber" ColumnName="totalNumber" />
+          <ScalarProperty Name="totalmoney" ColumnName="totalmoney" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Order_Admin_Categories_0" FunctionName="Data_MassageModel.Store.Order_Admin_Categories_0">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Order_Admin_Categories_0_Result">
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id_tang" ColumnName="Id_tang" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+          <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+          <ScalarProperty Name="S_Money" ColumnName="S_Money" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Id_service" ColumnName="Id_service" />
+          <ScalarProperty Name="Discount_code_view" ColumnName="Discount_code_view" />
+          <ScalarProperty Name="Sale_code" ColumnName="Sale_code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Order_Admin_Employee_0" FunctionName="Data_MassageModel.Store.Order_Admin_Employee_0">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Order_Admin_Employee_0_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="Id_tang" ColumnName="Id_tang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Order_Admin_Service_0" FunctionName="Data_MassageModel.Store.Order_Admin_Service_0">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Order_Admin_Service_0_Result">
+          <ScalarProperty Name="Id_tang" ColumnName="Id_tang" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TypeOder" ColumnName="TypeOder" />
+          <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RantingStarEmployee" FunctionName="Data_MassageModel.Store.RantingStarEmployee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.RantingStarEmployee_Result">
+          <ScalarProperty Name="DayNew" ColumnName="DayNew" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="O_number" ColumnName="O_number" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Data_MassageModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Data_MassageModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Data_MassageModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Data_MassageModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Data_MassageModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Data_MassageModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Data_MassageModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SqlQueryNotificationStoredProcedure_473aab5c_708a_415e_a0ca_637768959ba0" FunctionName="Data_MassageModel.Store.SqlQueryNotificationStoredProcedure_473aab5c_708a_415e_a0ca_637768959ba0" />
+    <FunctionImportMapping FunctionImportName="Staff_client" FunctionName="Data_MassageModel.Store.Staff_client">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Data_MassageModel.Staff_client_Result">
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="TE_Admin_Staff" ColumnName="TE_Admin_Staff" />
+          <ScalarProperty Name="E_Details" ColumnName="E_Details" />
+          <ScalarProperty Name="E_Image" ColumnName="E_Image" />
+          <ScalarProperty Name="E_ImageList" ColumnName="E_ImageList" />
+          <ScalarProperty Name="E_Money" ColumnName="E_Money" />
+          <ScalarProperty Name="E_NumberStar_Admin" ColumnName="E_NumberStar_Admin" />
+          <ScalarProperty Name="E_NumberStar_View1" ColumnName="E_NumberStar_View1" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="E_Status" ColumnName="E_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

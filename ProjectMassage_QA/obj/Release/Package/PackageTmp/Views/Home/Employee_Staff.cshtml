@@ -1,0 +1,51 @@
+﻿@model List<ProjectMassage_QA.Areas.Admin.Models.FW.Staff_client_Result>
+
+<div class="QA_employee">
+    <div class="col-lg-12">
+        <div class="row">
+            @foreach (var item in Model.OrderByDescending(x=>x.Id).ToList())
+            {
+                var HTML = ""; var CSS = ""; var BACKGROUND = "";
+                if (item.E_Status == 1)
+                {
+                    HTML = "ONLINE";
+                    BACKGROUND = "success";
+
+                }
+                else if (item.E_Status == 2)
+                {
+                    HTML = "OFFLINE";
+                    CSS = "QA_client_disabled";
+                    BACKGROUND = "danger";
+                }
+                <div class="col-md-3 col-lg-2 col-xs-6" style="padding-left: 4px;padding-right: 2px;">
+                    <div class="position-relative">
+                        <div class="card">
+                            <img class="card-img-top" src="@item.E_Image" width="100%" alt="at" onclick="XemChiTiet(@item.Id)">
+                            <div class=" ribbon-wrapper ribbon-xl">
+                                <input type="hidden" class="ID_Hiden" id="get_list_id_active" value="@item.Id" />
+                                <input class="staff" id="status_@item.Id" type="hidden" data-target="@item.Id" data-theme="@item.E_Status" data-code="@item.E_Code" data-money="@item.E_Money" data-id="@item.E_Name" value="1">
+                                <div id="StatusColor_@item.Id" class="ribbon bg-@BACKGROUND text-lg">
+                                    <p id="text_status_@item.Id">@HTML</p>
+                                    <div class="star">
+                                        @for (var i = 0; i < 5; i++)
+                                        {
+                                            if (i < item.E_NumberStar_View1)
+                                            {
+                                                <i class="fa fa-star"></i>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="right @CSS" id="pointer_@item.Id"><p data-id="@item.Id" data-target="@item.E_NumberStar_View1" class="choose">Chọn</p></div>
+                                <div onclick="ViewDetails(@item.Id)" class="left"><p class="details">Xem</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div><!-- end QA_employee-->

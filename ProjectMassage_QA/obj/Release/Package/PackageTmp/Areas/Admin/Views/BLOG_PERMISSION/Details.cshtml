@@ -1,0 +1,43 @@
+﻿@*@model ProjectMassage_QA.Areas.Admin.Models.FW.BLog_Permission_BCacQuenCT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BLog_Permission_BCacQuenCT</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PermissionName_TenQuyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermissionName_TenQuyen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PermissionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

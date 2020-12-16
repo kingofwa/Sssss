@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-primary" onclick="RETURN_DATA_LISTCOLOR()" href="#"><i class="fas fa-shield-alt mr-1"></i>Tiêu chuẩn</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-info" onclick="GET_DATA_LISTCOLOR()" href="#"><i class="fab fa-themeco mr-1"></i>Của bạn</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12">
+                    <div class="content-category">
+                        <form class="row mauchu" action="">
+                            <div class="form-group  col-3">
+                                <label for="fontchu">Font chữ</label>
+                                <select class="QA_form-control" id="fontchu">
+                                    <option value="">Tiêu chuẩn</option>
+                                    <option value="revert">Revert</option>
+                                    <option value="cursive">Cursive</option>
+                                    <option value="fangsong">Fangsong</option>
+                                    <option value="monospace">Monospace</option>
+                                    <option value="serif">Serif</option>
+                                    <option value="roboto">Roboto</option>
+                                    <option value="system-ui">System-ui</option>
+                                </select>
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="heightRight">Chiều cao 2 khối phải (px)</label>
+
+                                <input type="number" class="form-control" min="200" id="heightRight">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="mauonline">Phòng online</label>
+                                <input type="color" class="form-control" id="mauonline">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="maucokhach">Phòng có khách</label>
+                                <input type="color" class="form-control" id="maucokhach">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="heightContent">Chiều cao Content (px)</label>
+                                <input type="number" class="form-control" min="500" id="heightContent">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="widthContent">Chiều cao phòng (px)</label>
+                                <input type="number" class="form-control" min="500" id="widthContent">
+                            </div>
+
+                            <div class="form-group  col-3">
+                                <label for="maunhanviencokhach">Nhân viên offline</label>
+                                <input type="color" class="form-control" id="maunhanviencokhach">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="maunhanvienonline">Nhân viên online</label>
+                                <input type="color" class="form-control" id="maunhanvienonline">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="cochu">Cỡ chữ (px)</label>
+                                <input type="number" class="form-control" min="10" max="20" placeholder="18" id="cochu">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="mauchu">Màu chữ</label>
+                                <input type="color" class="form-control" id="mauchu">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="maucho">Phòng chờ</label>
+                                <input type="color" class="form-control" id="maucho">
+                            </div>
+                            <div class="form-group  col-3">
+                                <label for="maunhanvienonline">Background NAVBAR & TABBAR</label>
+                                <input type="color" class="form-control" id="colorbar">
+                            </div>
+                            <input type="hidden" id="update_setting" value="1">
+                            @*<div class="form-group  col-3">
+                            <label for="widthRight">Chiều rộng content phải (px)</label>
+                            <input type="number" class="form-control" min="100" id="widthRight">
+                        </div>*@
+                            <div class="form-group  col-3">
+                                <label for="hienthichuthich">Hiển thị chú thích</label>
+                                <select class="QA_form-control" id="hienthichuthich">
+                                    <option value="1">Có</option>
+                                    <option value="0">Không</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @if (Convert.ToInt32(Session["setting"]) == 1)
+                {
+                    <h3 class="text-center text-danger mt-5">
+                        <marquee width="60%" direction="left" scrollamount="15" height="100px" id="caidatxong">CHỌN THEME ĐỂ SỬ DỤNG PHẦN MỀM </marquee>
+                    </h3>
+                }
+                <div class="bottom_save_setting">
+                    <a class="btn btn-xs btn-success disabled" id="Save_setting" href="#"><i class="fas fa-check-circle mr-2"></i>Cập nhật</a>
+                </div>
+            </div><!-- het card-body lepvcc black direct-chat-messages -->
+        </div>
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->

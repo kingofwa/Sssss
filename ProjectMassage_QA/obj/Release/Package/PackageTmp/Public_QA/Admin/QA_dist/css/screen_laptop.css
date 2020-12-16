@@ -1,0 +1,9 @@
+﻿@media screen and (max-width: 1400px) {
+    .card-body.room_zoom_out.black.direct-chat-messages {
+      
+    }
+    
+    .icon.position-absolute{
+        display:none;
+    }
+}

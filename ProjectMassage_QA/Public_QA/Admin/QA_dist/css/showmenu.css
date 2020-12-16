@@ -1,0 +1,64 @@
+show_menu{
+    font-weight: normal;
+    font-size: 25px;
+   }
+   show_menu:hover{
+    cursor: pointer;
+   }
+   
+   /* Context menu */
+   .context-menu{
+    display: none;
+    position: absolute;
+    border: 1px solid rgb(48, 47, 47);
+    border-radius: 3px;
+    width: 145px;
+    background: rgb(235, 232, 232);
+    box-shadow: 5px 5px 3px #888888;
+   }
+   
+   .context-menu ul {
+    list-style: none;
+    padding: 2px;
+    margin-bottom: -3px;
+}
+   
+   .context-menu ul li{
+    padding: 5px 5px;
+    color: rgb(49, 45, 45);
+    font-weight: bold;
+    border-bottom: 1px solid #3d3d3d;
+    width: 139px;
+    font-size: 15px;
+   }
+   .context-menu ul li span{
+     font-size: 11px;
+   }
+   
+   .context-menu ul li:hover{
+    cursor: pointer;
+    background-color: #057377;
+    color: aliceblue;
+    font-size: 16px;
+   }
+   
+   /* Colors */
+   .Gainsboro ,.Orange ,.Plum {
+    width:15px;
+    height:15px;
+    border: 0px solid rgb(97, 92, 92);
+    display: inline-block;
+    margin-right: 5px;
+   }
+   
+   .Gainsboro {
+    background-color: Gainsboro ;
+   }
+   .Orange {
+    background-color: Orange ;
+   }
+   .Plum {
+    background-color: Plum ;
+   }
+   /* end CSS ShowMenu */
+

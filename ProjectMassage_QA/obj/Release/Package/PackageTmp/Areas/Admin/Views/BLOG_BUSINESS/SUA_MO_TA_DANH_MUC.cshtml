@@ -1,0 +1,50 @@
+﻿@*@model ProjectMassage_QA.Areas.Admin.Models.FW.BLog_Business_TenQuyen
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div>
+                <a id="banthuchien" style="font-size:16px; color:#00ff21"></a>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12">
+                    <div class="content-category">
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.BusinessId)
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.BusinessName, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.BusinessName)
+                                        @Html.ValidationMessageFor(model => model.BusinessName)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="LƯU" class="btn btn-default btn-xs" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            @Html.ActionLink("QUAY VỀ", "Danh_Muc_Va_Danh_Sach_Quyen_Han")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

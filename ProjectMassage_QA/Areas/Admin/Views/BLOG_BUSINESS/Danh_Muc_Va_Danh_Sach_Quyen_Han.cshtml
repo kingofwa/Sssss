@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-right mt-2">
+                        <ul style="margin-bottom:10px;">
+                            <li class="d-inline-block ">
+                                <p class="btn btn-flat btn-default lepvcct btn-sm">
+                                    @Html.ActionLink("CẬP NHẬT", "UpdateBusiness")
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a id="banthuchien" style="font-size:16px; color:#00ff21"></a>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12">
+                    <div class="content-category">
+                        <table class="table text-center table-bordered table-hover">
+                            <thead style="width:100%;">
+                                <tr class="info maume">
+                                    <th style="width:4%;">STT</th>
+                                    <th style="width:20%;">DANH MỤC CHÍNH</th>
+                                    <th style="width:40%;">MÔ TẢ</th>
+                                    <th>NGHIỆP VỤ</th>
+                                    <th style="width:7%;">SỬA</th>
+                                    <th style="width:7%;">XÓA</th>
+                                </tr>
+                            </thead>
+
+                            @{
+                                var i = 0;
+                            }
+                            <tbody id="SetStudentList">
+                                @foreach (var item in Model)
+                                {
+                                    i += 1;
+                                    var danhmuc = item.BusinessId;
+
+                                    if (danhmuc.IndexOf("Controller") != -1)
+                                    {
+                                        danhmuc = danhmuc.Substring(0, danhmuc.IndexOf("Controller"));
+                                    }
+
+                                    <tr id="row_@i">
+                                        <th class="text-danger" style="width:4%;">@i</th>
+                                        <td class="text-left" style="width:20%;"><span id="dangmuc_@i">@danhmuc</span></td>
+                                        <td class="text-left" style="width:40%;">@item.BusinessName </td>
+                                        <td>
+                                            <a href="/Admin/BLOG_PERMISSION/Danh_Sach_Quyen?id=@item.BusinessId">CHI TIẾT <i class="fas fa-info-circle ml-1"></i></a>
+                                        </td>
+                                        <td style="width:7%;">
+                                            @*<a href="/Admin/BLOG_BUSINESS/SUA_MO_TA_DANH_MUC?id=@item.BusinessId"><i class="far fa-edit"></i></a>*@
+                                            <a onclick="EDIT_DANHMUC(@i)"><i class="far fa-edit"></i></a>
+                                        </td>
+                                        <td style="width:7%;">
+                                            <a onclick="Delete(@i)"><i class="fas fa-trash-alt"></i> </a>
+                                            <input type="hidden" id="BusinessId_@i" value="@item.BusinessId" />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Create Apopup Modal For Delete Confirnation*@
+<div class="modal fade" id="DeleteConfirmation">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <input id="deletecongtydongtr" type="hidden" />
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h6 id="tieudechinh"></h6>
+                </div>
+                <h4>Bạn có muốn xóa danh mục chính này không?</h4>
+                <div class="modal-room">
+                    <a href="#" class="btn btn-danger btn-sm" id="iddelete">XÓA</a>
+                    <a href="#" class="btn btn-primary btn-sm" data-dismiss="modal">KHÔNG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="suamotadanhmucquyen">
+    <div class="modal-dialog modal-lg">
+        <div class="QA_Admin-modal-content">
+            <div class="modal-header maume">
+                <h6 class="modal-title text-uppercase text-white">MÔ TẢ QUYỀN</h6>
+                <span class="text-danger pr-2" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="mauchu"> Danh Mục</th>
+                                <td colspan="1" id="danhmuc"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="mauchu">Mô Tả Danh Mục</th>
+                                <td colspan="1">
+                                    <textarea id="motadanhmuc" rows="1" cols="80"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <b id="cangbao1" style="color:red;"></b>
+                    <div class="float-md-right mr-3">
+                        <a href="#" class="btn btn-danger btn-xs mr-2" data-dismiss="modal"><i class="fa fa-times mr-1"></i> HỦY</a>
+                        <a href="" class="btn btn-primary btn-xs" onclick="LUU_MO_TA_DANH_MUC_id()"><i class="fa fa-save mr-1"></i> LƯU</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Public_QA/Admin/QA_plugins/jquery-1.10.2.min.js"></script>
+<script>
+
+    function EDIT_DANHMUC(iddanhmuc) {
+        debugger
+        $("#suamotadanhmucquyen").modal('show');
+        var id = $("#BusinessId_" + iddanhmuc).val();
+        var url = "/Admin/BLOG_BUSINESS/Get_Quyen_Theo_Danh_Muc?id=" + id;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (data) {
+                var obj = JSON.parse(data)
+                $("#danhmuc").html(obj[0].BusinessId);
+                $("#motadanhmuc").html(obj[0].BusinessName);
+            }
+        })
+    };
+    function LUU_MO_TA_DANH_MUC_id() {
+        debugger
+        var danhmuc = $("#danhmuc").html();
+        var motadanhmuc = $("#motadanhmuc").val();
+        var cangbao = "";
+        if (motadanhmuc == "" || motadanhmuc == null) {
+            var cangbao = "Bạn chưa mô tả !";
+            toastr.warning(cangbao);
+        }
+        var dm = [];
+        dm.length = 0;
+        dm.push({
+            BusinessId: danhmuc,
+            BusinessName: motadanhmuc,
+        });
+        var data = JSON.stringify({
+            vanle: dm
+        });
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: "/Admin/BLOG_BUSINESS/Luu_Mo_Ta_Danh_MUC",
+            data: data,
+            success: function (result) {
+                var tgmoi = "/Admin/BLOG_BUSINESS/Danh_Muc_Va_Danh_Sach_Quyen_Han?id=" + result;
+                location.href = tgmoi;
+                $("#suamotadanhmucquyen").modal("hide");
+            },
+            error: function () {
+                toastr.error("Lỗi hệ thống !!!");
+            }
+        });
+    };
+
+
+    function Delete(idconty) {
+        var tg12 = $("#BusinessId_" + idconty).val();
+        var tg21 = $("#dangmuc_" + idconty).html();
+        var tieudechinh = "Xóa " + tg21;
+        $("#tieudechinh").html(tieudechinh);
+        $("#deletecongtydongtr").val("");
+        $("#deletecongtydongtr").val(idconty);
+        $("#DeleteConfirmation").modal('show');
+        $("#iddelete").click(function () {
+            var idconty = $("#deletecongtydongtr").val();
+            var url = "/BLOG_BUSINESS/GetDelete_Danh_muc?idconty=" + tg12;
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (data) {
+                    if (data == '"B"') {
+                        $("#DeleteConfirmation").modal("hide");
+                        $("#row_" + idconty).remove();
+                    }
+                    else {
+                        var tg3 = "Bạn không thể xóa " + tg12 + " được";
+                        $("#tieudechinh1").html(tg12);
+                        $("#noidungchinhmodal").html(tg3);
+                        $("#thongbaomoi").modal('show');
+                        $("#DeleteConfirmation").modal("hide");
+                    }
+
+
+                }
+            })
+
+        });
+    }
+</script>

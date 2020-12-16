@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "QA_Massage";
+    var thongbao = ViewData["thongbao"] as List<ProjectMassage_QA.Areas.Admin.Models.ViewModel.thongbao>;
+}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th>Dịch vụ</th>
+                        <th>Loại hình</th>
+                        <th>Phục vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="show_Oder" class="text-uppercase">
+                       
+                    </tr>
+                </tbody>
+            </table>
+            <form action="" class="form-inline m-1">
+                <div class="sale position-relative">
+                    <label for="">Mã giảm</label>
+                    <input type="text" id="magiam" class="form-inline"><i class="fa fa-search" id="get_sale_client"></i>
+
+                    <br>
+                </div>
+                <div class="giam">
+                    <label for=""><span>Giảm</span></label>
+                    <span id="show_giam" style="float: right;margin-right:6px;">
+
+                    </span>
+                </div>
+                <label for=""><span>Tổng tiền</span></label>
+                <span id="show_Money" style="float: right;margin-right:6px;">
+
+                </span>
+                <p><label for="">Thông tin khách hàng<b class="text-danger">*</b></label></p>
+                <textarea class="form-control" id="note_oder" cols="1" rows="1"></textarea>
+                <small class="text-danger text-xs" id="thongtinkhongduocdetrong"></small>
+            </form>
+            @foreach (var item in thongbao)
+            {
+                <span class="ml-2 text-danger text-xs">@item.thongbao_khach</span>
+            }
+        </div>
+        <div class="modal-room">
+            <button type="button" id="showstar" class="btn btn-danger btn-sm mr-1" data-dismiss="modal">Hủy</button>
+            <button type="button" id="showsuccess" class="btn btn-success btn-sm" onclick="ConfirmOder()">Đặt</button>
+        </div>
+    </div>
+</div><!-- end mode xác thực -->

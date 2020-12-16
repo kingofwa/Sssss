@@ -1,0 +1,52 @@
+﻿@{
+    var list_history_oder = ViewData["list_history_oder"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblOrder>;
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-orange " href=""><i class="fas fa-recycle mr-1"></i> Tải lại</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <table class="table text-center table-bordered table-hover" id="myTable">
+                        <thead>
+                            <tr style="width:100%;" class="maume">
+                                <th style="width:5%;">#</th>
+                                <th>Bill</th>
+                                <th>Nhân Viên Thực Hiện</th>
+                                <th>Thời Gian</th>
+                                <th style="width:40%;">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="show-body">
+                            @foreach (var item in list_history_oder)
+                            {
+                                <tr id="black_binz_@item.Id">
+                                    <td>
+                                        <i onclick="Del_Oder(@item.Id)" class="far fa-trash-alt" style="color:red;cursor:pointer;"></i>
+                                        <input class="status_color_table" type="hidden" value="@item.Id" />
+                                    </td>
+                                    <td>@item.O_number</td>
+                                    <td>@item.NhanVienID</td>
+                                    <td>@item.DayNew.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                                    <td>@item.Note</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->

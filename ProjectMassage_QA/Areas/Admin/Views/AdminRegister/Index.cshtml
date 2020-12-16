@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var Register = ViewData["Register"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.BDang_Ky>;
+
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+
+            @*<div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-orange " href="#"><i class="fas fa-recycle mr-1"></i> Tải lại</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12">
+                    <div class="content-category">
+                        @foreach (var item in Register)
+                        {
+                            <form class="row mauchu" action="">
+                                <div class="form-group  col-3">
+                                    <label for="Dangkycongty">Đăng ký công ty</label>
+                                    <input type="text" class="form-control" id="Dangkycongty" value="@item.Dangkycongty">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="tencongtychuthuong">Tên công ty chữ thường</label>
+                                    <input type="text" class="form-control" id="tencongtychuthuong" value="@item.tencongtychuthuong">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="Diachi">Địa chỉ</label>
+                                    <input type="text" class="form-control " id="Diachi" value="@item.Diachi">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="TenGiamdocky">Giám đốc</label>
+                                    <input type="text" class="form-control" id="TenGiamdocky" value="@item.TenGiamdocky">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Tenketoantruong">Kế toán trưởng</label>
+                                    <input type="text" class="form-control" id="Tenketoantruong" value="@item.Tenketoantruong">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Tenthuquy">Thủ quỹ</label>
+                                    <input type="text" class="form-control" id="Tenthuquy" value="@item.Tenthuquy">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Thu_Kho">Thủ kho</label>
+                                    <input type="text" class="form-control" id="Thu_Kho" value="@item.Thu_Kho">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Masothue">Mã số thuế</label>
+                                    <input type="text" class="form-control" id="Masothue" value="@item.Masothue">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Dienthoai">Điện thoại</label>
+                                    <input type="text" class="form-control" id="Dienthoai" value="@item.Dienthoai">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Sotaikhoan">Số tài khoản</label>
+                                    <input type="text" class="form-control" id="Sotaikhoan" value="@item.Sotaikhoan">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label >Logo</label>
+                                    <p><a class="btn btn-primary btn-sm d-block" onclick="BrowseServer_Logo()">Chọn Logo</a></p>
+                                    <input type="hidden" id="Logo"/>
+                                    <p id="show_logo" class="m-0"><img src="@item.Logo"style="width:40px;height:30px;"/></p>
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Tainganhang">Tài khoản ngân hàng</label>
+                                    <input type="text" class="form-control" id="Tainganhang" value="@item.Tainganhang">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="SoFax">SoFax</label>
+                                    <input type="text" class="form-control" id="SoFax" value="@item.SoFax">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="NamTaichinh">Năm tài chính</label>
+                                    <input type="number" class="form-control" id="NamTaichinh" value="@item.NamTaichinh">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Songaythuno">Số ngày thu nợ</label>
+                                    <input type="number" class="form-control" id="Songaythuno" value="@item.Songaythuno">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Motanganhnghe">Mô tả ngành nghề</label>
+                                    <input type="text" class="form-control" id="Motanganhnghe" value="@item.Motanganhnghe">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="TenTiengAnh">Tên tiếng anh</label>
+                                    <input type="text" class="form-control" id="TenTiengAnh" value="@item.TenTiengAnh">
+                                </div>
+
+                                <div class="form-group  col-3">
+                                    <label for="Ngayhoachtoan">Ngày hoạch toán</label>
+                                    @if (item.Ngaykethuchoachtoan == null)
+                                    {
+                                        <input type="date" class="form-control" id="Ngayhoachtoan" value="@item.Ngayhoachtoan">
+                                    }
+                                    else
+                                    {
+                                        <input type="date" class="form-control" id="Ngayhoachtoan" value="@item.Ngayhoachtoan.GetValueOrDefault().ToString("yyyy-MM-dd")">
+                                    }
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Ngaykethuchoachtoan">Ngày kết thúc hoạch toán</label>
+                                    @if (item.Ngaykethuchoachtoan == null)
+                                    {
+                                        <input type="date" class="form-control" id="Ngaykethuchoachtoan" value="@item.Ngaykethuchoachtoan">
+                                    }
+                                    else
+                                    {
+                                        <input type="date" class="form-control" id="Ngaykethuchoachtoan" value="@item.Ngaykethuchoachtoan.GetValueOrDefault().ToString("yyyy-MM-dd")">
+                                    }
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Diachi_VanPhong">Địa chỉ văn phòng</label>
+                                    <input type="text" class="form-control" id="Diachi_VanPhong" value="@item.Diachi_VanPhong">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Muc_dong_BH">Mục đóng bảo hiểm</label>
+                                    <input type="number" class="form-control" id="Muc_dong_BH" value="@item.Muc_dong_BH">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="DK_Open">Open Door</label>
+                                    <input type="time" class="form-control" id="DK_Open" value="@item.DK_Open">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="DK_Close">Close Door</label>
+                                    <input type="time" class="form-control" id="DK_Close" value="@item.DK_Close">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Ngay_Cong">Ngày công</label>
+                                    <input type="number" class="form-control" id="Ngay_Cong" value="@item.Ngay_Cong">
+                                </div>
+                                <div class="form-group  col-3">
+                                    <label for="Lam_CN">Làm chủ nhật</label>
+                                    <input type="text" class="form-control" id="Lam_CN" value="@item.Lam_CN">
+                                </div>
+
+                                <div class="form-group  col-3">
+                                    <label for="Thoi_Gian_Check_Int">Thời gian checkin mặc định (giờ)</label>
+                                    <input type="number" class="form-control " placeholder="2 giờ" id="Thoi_Gian_Check_Int" min="1" max="24" value="@item.Thoi_Gian_Check_Int">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label for="Thoi_Gian_Ca">Thời gian mỗi ca mặc định (giờ)</label>
+                                    <input type="number" class="form-control " placeholder="8 giờ" id="Thoi_Gian_Ca" min="1" max="24" value="@item.Thoi_Gian_Ca">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="Chu_y">Chú ý</label>
+                                    <input type="text" class="form-control " id="Chu_y" value="@item.Chu_y">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="Thong_bao">Thông báo</label>
+                                    <input type="text" class="form-control " id="Thong_bao" value="@item.Thong_bao">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="">Văn bản dưới bill</label>
+                                    <input type="text" class="form-control " id="thank_custommer" value="@item.thank_custommer">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="">Phụ phí</label>
+                                    <input type="number" class="form-control " id="phuphi" value="@item.phuphi">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="">Thuế(%)</label>
+                                    <input type="number" class="form-control " id="thuevat" value="@item.thuevat">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="">Văn bản dưới bảng xác nhận oder của khách</label>
+                                    <input type="text" class="form-control " id="xacnhan" value="@item.xacnhan">
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+                <div class="bottom_save_setting">
+                    <a class="btn btn-xs btn-success " id="Save_Register" href="#"><i class="fas fa-check-circle mr-2"></i>Cập nhật</a>
+                </div>
+            </div><!-- het card-body lepvcc black direct-chat-messages -->
+        </div>
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->

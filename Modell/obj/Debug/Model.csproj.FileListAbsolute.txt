@@ -1,0 +1,9 @@
+E:\Project\Modell\bin\Debug\Modell.dll.config
+E:\Project\Modell\bin\Debug\Modell.dll
+E:\Project\Modell\bin\Debug\Modell.pdb
+E:\Project\Modell\bin\Debug\EntityFramework.dll
+E:\Project\Modell\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\Modell\bin\Debug\EntityFramework.xml
+E:\Project\Modell\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\Modell\obj\Debug\Modell.dll
+E:\Project\Modell\obj\Debug\Modell.pdb

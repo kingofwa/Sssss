@@ -1,0 +1,324 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-right mt-2">
+                        <ul>
+                            <li class="d-inline-block ">
+                                <a class="btn btn-xs btn-primary" href="/Admin/BLOG_BUSINESS/Danh_Muc_Va_Danh_Sach_Quyen_Han"><i class="fas fa-chevron-circle-left mr-2"></i>QUAY LẠI</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div>
+                    <a id="banthuchien" style="font-size:16px; color:#00ff21"></a>
+                </div>
+                @{
+                    var danhmuc = "";
+                    foreach (var item in Model)
+                    {
+
+                        danhmuc = item.BusinessId;
+                        danhmuc = danhmuc.Substring(0, danhmuc.IndexOf("Controller"));
+                        <div class="text-center-khongduoc mauchu mb-4">
+                            <h5> DANH SÁCH QUYỀN CỦA DANH MỤC  <b id="danhmucmoi">@danhmuc</b></h5>
+                        </div>
+                        break;
+                    }
+                }
+
+                <div class="col-md-12">
+                    <div class="content-category">
+                        <table class="table text-center table-bordered table-hover">
+                            <tr class="maume text-white-50">
+                                <th style="width:5%;">STT</th>
+                                <th style="width:30%;">TÊN QUYỀN </th>
+                                <th style="width:42%;">MÔ TẢ CHỨC NĂNG </th>
+                                <th style="width:9%;"><input type="checkbox" id="check_quyen_all" data-content="@danhmuc" /> CHỌN </th>
+                                <th style="width:6%;"> SỬA</th>
+                                <th style="width:8%"> XÓA</th>
+                            </tr>
+                            @{
+                                var i = 0;
+                                foreach (var item in Model)
+                                {
+                                    i += 1;
+                                    var xuly = item.PermissionName_TenQuyen;
+                                    if (xuly.IndexOf("-") != -1)
+                                    {
+                                        var ma = xuly.Split('-');
+                                        xuly = ma[1];
+                                    }
+                                    <tr id="row_@item.PermissionId">
+                                        <td class="text-danger">@i</td>
+                                        <td class="text-left"><span id="tenquyen_@item.PermissionId">@xuly</span><input type="hidden" value="@item.PermissionId " id="PermissionId" /></td>
+                                        <td class="text-left">@item.Description</td>
+                                        <td>
+                                            @if (item.Quyencapcao == true)
+                                            {
+                                                <input type="checkbox" style="width:20px;height:20px;" name="chechedquyen" checked class="checkquyen" data-intro="@item.PermissionId" id="checkquyen_@item.PermissionId" />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" style="width:20px;height:20px;" name="checkquyen" class="checkquyen" data-intro="@item.PermissionId" id="checkquyen_@item.PermissionId" />
+                                            }
+                                        </td>
+                                        <td>
+                                            <a onclick="chinhsua(@item.PermissionId)"><i class="far fa-edit"></i></a>
+                                        </td>
+                                        <td>
+                                            <a onclick="DeletePermissionId(@item.PermissionId)"><i class="fas fa-trash-alt"></i> </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*//model sua ten quyen*@
+<div class="modal fade" id="suamotaquyen">
+    <div class="modal-dialog modal-lg">
+        <div class="QA_Admin-modal-content">
+            <div class="modal-header maume">
+                <h6 class="modal-title text-uppercase text-white">MÔ TẢ QUYỀN</h6>
+                <span class="text-danger pr-2" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="mauchu"> Thuộc Danh Mục </th>
+                                <td colspan="1" id="BusinessId"><input type="hidden" id="PermissionId" /></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="mauchu">Tên Quyền</th>
+                                <td colspan="1" id="PermissionName_TenQuyen"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="mauchu">Mô Tả Quyền</th>
+                                <td colspan="1">
+                                    <textarea id="Description" rows="1" cols="80"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <b id="cangbao1" style="color:red;"></b>
+                    <div class="float-md-right mr-3">
+                        <a href="#" class="btn btn-danger btn-xs mr-2" data-dismiss="modal"><i class="fa fa-times mr-1"></i> HỦY</a>
+                        <a href="" class="btn btn-primary btn-xs" onclick="Save_Mo_Ta_Quyen_id()"><i class="fa fa-save mr-1"></i> LƯU</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*model xóa*@
+<div class="modal fade" id="DeleteConfirmation">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <input id="deletecongtydongtr" type="hidden" />
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h6 id="tieudechinh"></h6>
+                </div>
+                <h4>Bạn có muốn xóa danh mục chính này không?</h4>
+                <div class="modal-room">
+                    <a href="#" class="btn btn-danger btn-sm" id="iddeletequyen">XÓA</a>
+                    <a href="#" class="btn btn-primary btn-sm" data-dismiss="modal">KHÔNG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thongbaomoi">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <input id="deletecongtydongtr" type="hidden" />
+            <div class="modal-body">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h6 id="tieudechinh1"></h6>
+                </div>
+                <h4 id="noidungchinhmodal">Bạn có muốn xóa danh mục chính này không?</h4>
+                <div class="modal-room">
+                    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Public_QA/Admin/QA_plugins/jquery-1.10.2.min.js"></script>
+<script>
+    function chinhsua(idconty) {
+        debugger
+        $("#suamotaquyen").modal('show');
+        $("#PermissionId").val(idconty);
+        var url = "/Admin/BLOG_PERMISSION/Get_Danh_Sach_Quyen_Theo_Danh_Muc?id=" + idconty;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (data) {
+                var obj = JSON.parse(data)
+                $("#PermissionName_TenQuyen").html(obj[0].PermissionName_TenQuyen);
+                $("#Description").val(obj[0].Description);
+                $("#BusinessId").html(obj[0].BusinessId);
+            }
+        })
+    }
+    function Save_Mo_Ta_Quyen_id() {
+        debugger
+        var PermissionId = $("#PermissionId").val();
+        var Description = $("#Description").val();
+
+        var cangbao = "";
+        if (Description == "" || Description == null) {
+            var cangbao = "Bạn chưa mô tả !";
+            toastr.warning(cangbao);
+        }
+        if (cangbao != "") {
+            $("#cangbao1").html(cangbao);
+        }
+        else {
+            var demo1 = [];
+            demo1.length = 0;
+            demo1.push({
+                PermissionId: PermissionId,
+                Description: Description,
+            });
+            var data = JSON.stringify({
+                congty: demo1
+            });
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/Admin/BLOG_PERMISSION/Save_Mo_Ta_Quyen_id",
+                data: data,
+                success: function (result) {
+                    var tgmoi = "/Admin/BLOG_PERMISSION/Danh_Sach_Quyen?id=" + result;
+                    location.href = tgmoi;
+                    $("#suamotaquyen").modal("hide");
+                },
+                error: function () {
+                    toastr.error("Lỗi hệ thống !!!");
+                }
+            });
+        }
+    };
+
+
+    function DeletePermissionId(idconty) {
+        debugger;
+        $("#DeleteConfirmation").modal('show');
+        var tg21 = $("#tenquyen_" + idconty).html();
+        var tieudechinh = tg21;
+        $("#tieudechinh").html(tieudechinh);
+        $("#deletecongtydongtr").val("");
+        $("#deletecongtydongtr").val(idconty);
+    }
+    $('HTML').on('click', "#iddeletequyen", function () {
+        var idconty = $("#deletecongtydongtr").val();
+
+        var url = "/Admin/BLOG_PERMISSION/GetDelete_Ten_Quyen?id=" + idconty;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (data) {
+                if (data == '"B"') {
+                    $("#DeleteConfirmation").modal("hide");
+                    $("#row_" + idconty).remove();
+                }
+                else {
+                    var tg3 = "Bạn không thể xóa " + tg21 + " được";
+                    $("#tieudechinh1").html(tg21);
+                    $("#noidungchinhmodal").html(tg3);
+                    $("#thongbaomoi").modal('show');
+                    $("#DeleteConfirmation").modal("hide");
+                }
+
+
+            }
+        })
+
+    });
+    $('html').on('click', ".checkquyen", function () {
+        debugger;
+        var id = $(this).data('intro');
+        var kt_true = document.getElementById('checkquyen_' + id);
+        var data = JSON.stringify({
+            id: id,
+            kt: kt_true.checked
+        });
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'JSON',
+            type: 'POST',
+            url: "/BLOG_PERMISSION/Phan_Quyen_Cap_cao",
+            data: data,
+            success: function (result) {
+                if (result == true) {
+                    document.getElementById("checkquyen_" + id).checked = result;
+                    toastr.success("Bạn cấp quyền thành công");
+                }
+                else {
+                    document.getElementById("checkquyen_" + id).checked = result;
+                    toastr.warning("Bạn hủy quyền thành công");
+                }
+            },
+            error: function () {
+                toastr.error("Lỗi hệ thống !!!");
+            }
+        });
+    })
+    $('html').on("click", '#check_quyen_all', function () {
+        debugger
+        var kt_true = document.getElementById("check_quyen_all");
+
+        var data = JSON.stringify({
+            check_quyen_all: $("#check_quyen_all").data('content'),
+            kt: kt_true.checked
+        });
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: "/BLOG_PERMISSION/Cap_Quyen_Cao_Nhat_All",
+            data: data,
+            success: function (result) {
+                var x = document.getElementsByClassName("checkquyen");
+                for (var i = 0; i < x.length; i++) {
+                    document.getElementsByClassName("checkquyen")[i].checked = result;
+                }
+                if (result == true) {
+                    toastr.success("Bạn cấp quyền tất cả thành công");
+                }
+                else {
+                    toastr.warning("Bạn hủy tất cả các quyền thành công !");
+                }
+            },
+            error: function () {
+                toastr.error("Lỗi hệ thống !!!");
+            }
+        });
+    })
+</script>

@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Data_MassageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BDang_Ky">
+    <Key>
+      <PropertyRef Name="ID_dang_Ky" />
+    </Key>
+    <Property Name="ID_dang_Ky" Type="Int32" Nullable="false" />
+    <Property Name="Dangkycongty" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="tencongtychuthuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TenGiamdocky" Type="Int32" />
+    <Property Name="Tenketoantruong" Type="Int32" />
+    <Property Name="Tenthuquy" Type="Int32" />
+    <Property Name="Thu_Kho" Type="Int32" />
+    <Property Name="Masothue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sotaikhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Tainganhang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NamTaichinh" Type="Int32" />
+    <Property Name="Diachi_VanPhong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Motanganhnghe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenTiengAnh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Songaythuno" Type="Int32" />
+    <Property Name="Ngayhoachtoan" Type="DateTime" Precision="0" />
+    <Property Name="Ngaykethuchoachtoan" Type="DateTime" Precision="0" />
+    <Property Name="Muc_dong_BH" Type="Int32" />
+    <Property Name="Ngay_Cong" Type="Int32" />
+    <Property Name="Lam_CN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DK_Open" Type="Time" Precision="7" />
+    <Property Name="DK_Close" Type="Time" Precision="7" />
+    <Property Name="Thoi_Gian_Check_Int" Type="Int32" />
+    <Property Name="Thoi_Gian_Ca" Type="Int32" />
+    <Property Name="Chu_y" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Thong_bao" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="thank_custommer" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="phuphi" Type="Int32" />
+    <Property Name="thuevat" Type="Int32" />
+    <Property Name="xacnhan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BLich_Su_Vao_Phan_Mem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nhan_su_ID" Type="Int32" />
+    <Property Name="Controller" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Ngay_vao" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BLog_Business_TenQuyen">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Name="BusinessId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BusinessName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BLog_Permission_BCacQuenCT">
+    <Key>
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="PermissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName_TenQuyen" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Quyencapcao" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Discount_Code">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name_discount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Sale_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Discount_code_view" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Footer_client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name_f" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi_f" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Sodienthoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="F_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="F_Active" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GrantPermission">
+    <Key>
+      <PropertyRef Name="PermissionId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="PermissionId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="phieu_thu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nguoinoptien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="sodienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="sotien_thu" Type="Double" />
+    <Property Name="noidungthu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Note_thu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="nguoinop" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="nguoilap" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ngaylap" Type="DateTime" Precision="0" />
+    <Property Name="sochungtu_thu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SettingAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="thoigian" Type="Int32" />
+    <Property Name="thoigianca" Type="Int32" />
+    <Property Name="fontchu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cochu" Type="Int32" />
+    <Property Name="chuy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mauonline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="maucokhach" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="maucho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="thongbao" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="maunhanvienonline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="maunhanviencokhach" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="colorbar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_User" Type="Int32" />
+    <Property Name="mauchu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="heightContent" Type="Int32" />
+    <Property Name="widthContent" Type="Int32" />
+    <Property Name="heightRight" Type="Int32" />
+    <Property Name="widthRight" Type="Int32" />
+    <Property Name="hienthichuthich" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_CaLamViec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="LoaiCaLamViecId" Type="Int32" />
+    <Property Name="NameEmployee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirtTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Id_giao" Type="Int32" />
+    <Property Name="Id_nhan" Type="Int32" />
+    <Property Name="Tong_tien_thu_trong_ca" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Tien_ca_truoc_ban_giao" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Tong_tien_mat" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Tong_tien_cuoi_ca" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <Property Name="Note_shift" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Loai_Ca_Lam_Viec" Relationship="Self.FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec" FromRole="tbl_CaLamViec" ToRole="tbl_Loai_Ca_Lam_Viec" />
+  </EntityType>
+  <EntityType Name="tbl_Loai_Ca_Lam_Viec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirtTime" Type="DateTime" Precision="3" />
+    <Property Name="LastTime" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_CaLamViec" Relationship="Self.FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec" FromRole="tbl_Loai_Ca_Lam_Viec" ToRole="tbl_CaLamViec" />
+  </EntityType>
+  <EntityType Name="tbl_Phieu_Chi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sodienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="sotien_chi" Type="Double" />
+    <Property Name="noidungchi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Note_chi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="chuky_nguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nguoilap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaylap" Type="DateTime" Precision="0" />
+    <Property Name="sochungtu_chi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="U_Status" Type="Boolean" />
+    <Property Name="Dark_Light_theme" Type="Int32" />
+    <Property Name="Full_full_screen" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="C_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="C_Active" Type="Boolean" />
+    <Property Name="C_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="C_Money" Type="Double" />
+    <NavigationProperty Name="tblRoom" Relationship="Self.FK_tblRoom_tblCategories" FromRole="tblCategories" ToRole="tblRoom" />
+  </EntityType>
+  <EntityType Name="tblColecttion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Order_Id" Type="Int32" />
+    <Property Name="CL_NewDay" Type="DateTime" Precision="0" />
+    <Property Name="CL_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CL_NhanSuId" Type="Int32" />
+    <Property Name="CL_Active" Type="Boolean" />
+    <Property Name="CL_Content" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CL_Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CL_Money" Type="Double" />
+    <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblColecttion_tblOrder" FromRole="tblColecttion" ToRole="tblOrder" />
+  </EntityType>
+  <EntityType Name="tblCheckin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirtDayCheckin" Type="DateTime" Precision="0" />
+    <Property Name="FirtHourCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDayCheckin" Type="DateTime" Precision="0" />
+    <Property Name="LastHourCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryCheckin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ServiceCheckin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EmployeeStaffCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoteCheckin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID_RoomCheckin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblEmployees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="E_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TypeEmployeeId" Type="Int32" />
+    <Property Name="E_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="E_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="E_Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="E_Dayin" Type="DateTime" Precision="3" />
+    <Property Name="E_Dayout" Type="DateTime" Precision="3" />
+    <Property Name="E_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="E_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_Active" Type="Int32" />
+    <NavigationProperty Name="tblRegister" Relationship="Self.FK_tblRegister_tblEmployees" FromRole="tblEmployees" ToRole="tblRegister" />
+    <NavigationProperty Name="tblSepending" Relationship="Self.FK_tblSepending_tblEmployees" FromRole="tblEmployees" ToRole="tblSepending" />
+    <NavigationProperty Name="tblStaffInEmployee" Relationship="Self.FK_tblStaffInEmployee_tblEmployees" FromRole="tblEmployees" ToRole="tblStaffInEmployee" />
+  </EntityType>
+  <EntityType Name="tblNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="N_Content" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="N_Show" Type="Int32" />
+    <Property Name="N_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirtDayCheckin" Type="DateTime" Precision="0" />
+    <Property Name="FirtHourCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDayCheckin" Type="DateTime" Precision="0" />
+    <Property Name="LastHourCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="O_number" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="NhanVienID" Type="Int32" />
+    <Property Name="DayNew" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Chay" Type="Int32" />
+    <Property Name="Ca_lam_Id" Type="Int32" />
+    <Property Name="Id_Code_sale" Type="Int32" />
+    <Property Name="phantramgiam" Type="Int32" />
+    <NavigationProperty Name="tblColecttion" Relationship="Self.FK_tblColecttion_tblOrder" FromRole="tblOrder" ToRole="tblColecttion" />
+    <NavigationProperty Name="tblOrderDetail" Relationship="Self.FK_tblOrderDetail_tblOrder" FromRole="tblOrder" ToRole="tblOrderDetail" />
+    <NavigationProperty Name="tblStarOrder" Relationship="Self.FK_tblStarOrder_tblOrder" FromRole="tblOrder" ToRole="tblStarOrder" />
+  </EntityType>
+  <EntityType Name="tblOrderDetail">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="Id_tang" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Id_tang" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="Money" Type="Double" />
+    <Property Name="TypeOder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblOrderDetail_tblOrder" FromRole="tblOrderDetail" ToRole="tblOrder" />
+  </EntityType>
+  <EntityType Name="tblRegister">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="GroupBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblRegister_tblEmployees" FromRole="tblRegister" ToRole="tblEmployees" />
+  </EntityType>
+  <EntityType Name="tblRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="R_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="R_Active" Type="Boolean" />
+    <Property Name="R_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="R_Status" Type="Int32" />
+    <NavigationProperty Name="tblCategories" Relationship="Self.FK_tblRoom_tblCategories" FromRole="tblRoom" ToRole="tblCategories" />
+  </EntityType>
+  <EntityType Name="tblSepending">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdNhan" Type="Int32" />
+    <Property Name="S_NewDay" Type="DateTime" Precision="0" />
+    <Property Name="S_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="S_NhanSuId" Type="Int32" />
+    <Property Name="S_Active" Type="Boolean" />
+    <Property Name="S_Content" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="S_Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="S_Money" Type="Double" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblSepending_tblEmployees" FromRole="tblSepending" ToRole="tblEmployees" />
+  </EntityType>
+  <EntityType Name="tblServicies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="S_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="S_Active" Type="Boolean" />
+    <Property Name="S_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="S_Money" Type="Double" />
+  </EntityType>
+  <EntityType Name="tblSlider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SLi_Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SLi_Content" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="SLi_Active" Type="Boolean" />
+    <Property Name="SLi_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblStaffInEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="E_NumberStar_View1" Type="Int32" />
+    <Property Name="E_NumberStar_Admin" Type="Int32" />
+    <Property Name="E_Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="E_ImageList" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="E_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="E_Money" Type="Double" />
+    <Property Name="E_Status" Type="Int32" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblStaffInEmployee_tblEmployees" FromRole="tblStaffInEmployee" ToRole="tblEmployees" />
+  </EntityType>
+  <EntityType Name="tblStarOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="SO_NumberStar" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblStarOrder_tblOrder" FromRole="tblStarOrder" ToRole="tblOrder" />
+  </EntityType>
+  <EntityType Name="TypeEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TE_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TE_Active" Type="Boolean" />
+    <Property Name="TE_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TE_Admin_Staff" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec">
+    <End Role="tbl_Loai_Ca_Lam_Viec" Type="Self.tbl_Loai_Ca_Lam_Viec" Multiplicity="0..1" />
+    <End Role="tbl_CaLamViec" Type="Self.tbl_CaLamViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Loai_Ca_Lam_Viec">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_CaLamViec">
+        <PropertyRef Name="LoaiCaLamViecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRoom_tblCategories">
+    <End Role="tblCategories" Type="Self.tblCategories" Multiplicity="0..1" />
+    <End Role="tblRoom" Type="Self.tblRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRoom">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblColecttion_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+    <End Role="tblColecttion" Type="Self.tblColecttion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblColecttion">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRegister_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="1" />
+    <End Role="tblRegister" Type="Self.tblRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRegister">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSepending_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="0..1" />
+    <End Role="tblSepending" Type="Self.tblSepending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblSepending">
+        <PropertyRef Name="IdNhan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffInEmployee_tblEmployees">
+    <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="1" />
+    <End Role="tblStaffInEmployee" Type="Self.tblStaffInEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaffInEmployee">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOrderDetail_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblOrderDetail" Type="Self.tblOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblOrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStarOrder_tblOrder">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblStarOrder" Type="Self.tblStarOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStarOrder">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BDang_Ky" EntityType="Self.BDang_Ky" />
+    <EntitySet Name="BLich_Su_Vao_Phan_Mem" EntityType="Self.BLich_Su_Vao_Phan_Mem" />
+    <EntitySet Name="BLog_Business_TenQuyen" EntityType="Self.BLog_Business_TenQuyen" />
+    <EntitySet Name="BLog_Permission_BCacQuenCT" EntityType="Self.BLog_Permission_BCacQuenCT" />
+    <EntitySet Name="Discount_Code" EntityType="Self.Discount_Code" />
+    <EntitySet Name="Footer_client" EntityType="Self.Footer_client" />
+    <EntitySet Name="GrantPermission" EntityType="Self.GrantPermission" />
+    <EntitySet Name="phieu_thu" EntityType="Self.phieu_thu" />
+    <EntitySet Name="SettingAdmin" EntityType="Self.SettingAdmin" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_CaLamViec" EntityType="Self.tbl_CaLamViec" />
+    <EntitySet Name="tbl_Loai_Ca_Lam_Viec" EntityType="Self.tbl_Loai_Ca_Lam_Viec" />
+    <EntitySet Name="tbl_Phieu_Chi" EntityType="Self.tbl_Phieu_Chi" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+    <EntitySet Name="tblCategories" EntityType="Self.tblCategories" />
+    <EntitySet Name="tblColecttion" EntityType="Self.tblColecttion" />
+    <EntitySet Name="tblCheckin" EntityType="Self.tblCheckin" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" />
+    <EntitySet Name="tblNotification" EntityType="Self.tblNotification" />
+    <EntitySet Name="tblOrder" EntityType="Self.tblOrder" />
+    <EntitySet Name="tblOrderDetail" EntityType="Self.tblOrderDetail" />
+    <EntitySet Name="tblRegister" EntityType="Self.tblRegister" />
+    <EntitySet Name="tblRoom" EntityType="Self.tblRoom" />
+    <EntitySet Name="tblSepending" EntityType="Self.tblSepending" />
+    <EntitySet Name="tblServicies" EntityType="Self.tblServicies" />
+    <EntitySet Name="tblSlider" EntityType="Self.tblSlider" />
+    <EntitySet Name="tblStaffInEmployee" EntityType="Self.tblStaffInEmployee" />
+    <EntitySet Name="tblStarOrder" EntityType="Self.tblStarOrder" />
+    <EntitySet Name="TypeEmployee" EntityType="Self.TypeEmployee" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" />
+    <AssociationSet Name="FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec" Association="Self.FK_tbl_CaLamViec_tbl_Loai_Ca_Lam_Viec">
+      <End Role="tbl_Loai_Ca_Lam_Viec" EntitySet="tbl_Loai_Ca_Lam_Viec" />
+      <End Role="tbl_CaLamViec" EntitySet="tbl_CaLamViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRoom_tblCategories" Association="Self.FK_tblRoom_tblCategories">
+      <End Role="tblCategories" EntitySet="tblCategories" />
+      <End Role="tblRoom" EntitySet="tblRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblColecttion_tblOrder" Association="Self.FK_tblColecttion_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblColecttion" EntitySet="tblColecttion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRegister_tblEmployees" Association="Self.FK_tblRegister_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblRegister" EntitySet="tblRegister" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSepending_tblEmployees" Association="Self.FK_tblSepending_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblSepending" EntitySet="tblSepending" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffInEmployee_tblEmployees" Association="Self.FK_tblStaffInEmployee_tblEmployees">
+      <End Role="tblEmployees" EntitySet="tblEmployees" />
+      <End Role="tblStaffInEmployee" EntitySet="tblStaffInEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOrderDetail_tblOrder" Association="Self.FK_tblOrderDetail_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblOrderDetail" EntitySet="tblOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStarOrder_tblOrder" Association="Self.FK_tblStarOrder_tblOrder">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblStarOrder" EntitySet="tblStarOrder" />
+    </AssociationSet>
+    <FunctionImport Name="Bill" ReturnType="Collection(Data_MassageModel.Bill_Result)" />
+    <FunctionImport Name="Bill_Chiitet" ReturnType="Collection(Data_MassageModel.Bill_Chiitet_Result)" />
+    <FunctionImport Name="Close_shift" ReturnType="Collection(Data_MassageModel.Close_shift_Result)" />
+    <FunctionImport Name="DOANH_THU_CA" ReturnType="Collection(Data_MassageModel.DOANH_THU_CA_Result)" />
+    <FunctionImport Name="DOANH_THU_NAM" ReturnType="Collection(Data_MassageModel.DOANH_THU_NAM_Result)" />
+    <FunctionImport Name="DOANH_THU_NGAY" ReturnType="Collection(Data_MassageModel.DOANH_THU_NGAY_Result)" />
+    <FunctionImport Name="Lay_Employee_Type" ReturnType="Collection(Data_MassageModel.Lay_Employee_Type_Result)" />
+    <FunctionImport Name="Lay_rom_hoat_dong" ReturnType="Collection(Data_MassageModel.Lay_rom_hoat_dong_Result)" />
+    <FunctionImport Name="LEPVC" ReturnType="Collection(Data_MassageModel.LEPVC_Result)" />
+    <FunctionImport Name="map_employee" ReturnType="Collection(Data_MassageModel.map_employee_Result)" />
+    <FunctionImport Name="mediumStar" ReturnType="Collection(Data_MassageModel.mediumStar_Result)" />
+    <FunctionImport Name="mediumStar12" ReturnType="Collection(Data_MassageModel.mediumStar12_Result)" />
+    <FunctionImport Name="NhatKy" ReturnType="Collection(Data_MassageModel.NhatKy_Result)" />
+    <FunctionImport Name="NumberOfServings" ReturnType="Collection(Data_MassageModel.NumberOfServings_Result)" />
+    <FunctionImport Name="Order_Admin_Categories_0" ReturnType="Collection(Data_MassageModel.Order_Admin_Categories_0_Result)" />
+    <FunctionImport Name="Order_Admin_Employee_0" ReturnType="Collection(Data_MassageModel.Order_Admin_Employee_0_Result)" />
+    <FunctionImport Name="Order_Admin_Service_0" ReturnType="Collection(Data_MassageModel.Order_Admin_Service_0_Result)" />
+    <FunctionImport Name="RantingStarEmployee" ReturnType="Collection(Data_MassageModel.RantingStarEmployee_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Data_MassageModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Data_MassageModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SqlQueryNotificationStoredProcedure_473aab5c_708a_415e_a0ca_637768959ba0" ReturnType="Collection(Guid)" />
+    <FunctionImport Name="Staff_client" ReturnType="Collection(Data_MassageModel.Staff_client_Result)" />
+  </EntityContainer>
+  <ComplexType Name="Bill_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Double" Name="Total" Nullable="true" />
+    <Property Type="DateTime" Name="FirtDayCheckin" Nullable="true" />
+    <Property Type="String" Name="FirtHourCheckin" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LastDayCheckin" Nullable="true" />
+    <Property Type="String" Name="LastHourCheckin" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NhanVienID" Nullable="true" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="phantramgiam" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Bill_Chiitet_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="String" Name="TypeOder" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Close_shift_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Double" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="Ca_lam_Id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="DOANH_THU_CA_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FirtTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nameusergiao" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Tien_ca_truoc_ban_giao" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Note_shift" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Tong_tien_cuoi_ca" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Tong_tien_mat" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Tong_tien_thu_trong_ca" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Id_nhan" Nullable="true" />
+    <Property Type="String" Name="Name_User" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="DOANH_THU_NAM_Result">
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="TypeOder" Nullable="true" MaxLength="10" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="DOANH_THU_NGAY_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name_User" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="Double" Name="total_money" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Lay_Employee_Type_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="E_Code" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TypeEmployeeId" Nullable="true" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="E_Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="E_CMND" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="E_Address" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="E_Dayin" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="E_Dayout" Nullable="true" Precision="23" />
+    <Property Type="String" Name="E_Note" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="E_Image" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="E_Active" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="String" Name="TE_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="TE_Active" Nullable="true" />
+    <Property Type="String" Name="TE_Note" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TE_Admin_Staff" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Lay_rom_hoat_dong_Result">
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="LastHourCheckin" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="LEPVC_Result">
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+    <Property Type="Int32" Name="NhanVienID" Nullable="true" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="Int32" Name="Id_tang" Nullable="false" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="TypeOder" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="S_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="S_Money" Nullable="true" />
+    <Property Type="Int32" Name="Id_service" Nullable="false" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Id_Code_sale" Nullable="true" />
+    <Property Type="Int32" Name="Id_sale" Nullable="true" />
+    <Property Type="String" Name="Discount_code_view" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Sale_code" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="map_employee_Result">
+    <Property Type="Int32" Name="E_Active" Nullable="true" />
+    <Property Type="String" Name="E_Image" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="E_Money" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="Int32" Name="E_Status" Nullable="true" />
+    <Property Type="String" Name="E_Code" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="mediumStar_Result">
+    <Property Type="Int32" Name="AVG_Employee" Nullable="true" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="E_Code" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="mediumStar12_Result">
+    <Property Type="Int32" Name="aaa" Nullable="true" />
+    <Property Type="Int32" Name="AVG_Employee" Nullable="true" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="E_Code" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="star" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="NhatKy_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="phantramgiam" Nullable="true" />
+    <Property Type="String" Name="Name_User" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="NumberOfServings_Result">
+    <Property Type="Int32" Name="totalNumber" Nullable="true" />
+    <Property Type="Double" Name="totalmoney" Nullable="true" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="Order_Admin_Categories_0_Result">
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="NhanVienID" Nullable="true" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="Int32" Name="Id_tang" Nullable="false" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="TypeOder" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="S_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="S_Money" Nullable="true" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Id_service" Nullable="false" />
+    <Property Type="String" Name="Discount_code_view" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Sale_code" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Order_Admin_Employee_0_Result">
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Id_tang" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Order_Admin_Service_0_Result">
+    <Property Type="Int32" Name="Id_tang" Nullable="false" />
+    <Property Type="Double" Name="Money" Nullable="true" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="TypeOder" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="S_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="RantingStarEmployee_Result">
+    <Property Type="DateTime" Name="DayNew" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="O_number" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="E_Image" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Staff_client_Result">
+    <Property Type="String" Name="E_Code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="E_Name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TE_Admin_Staff" Nullable="true" />
+    <Property Type="String" Name="E_Details" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="E_Image" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="E_ImageList" Nullable="true" MaxLength="550" />
+    <Property Type="Double" Name="E_Money" Nullable="true" />
+    <Property Type="Int32" Name="E_NumberStar_Admin" Nullable="true" />
+    <Property Type="Int32" Name="E_NumberStar_View1" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="E_Status" Nullable="true" />
+  </ComplexType>
+</Schema>

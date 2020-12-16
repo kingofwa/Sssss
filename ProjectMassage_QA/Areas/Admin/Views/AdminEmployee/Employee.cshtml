@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_employee = ViewData["list_employee"] as List<ProjectMassage_QA.Areas.Admin.Models.ViewModel.Employee_Type_View>;
+    var list_typeemployee = ViewData["list_typeemployee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.TypeEmployee>;
+    //var listPaginate = ViewData["listPaginate"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblEmployees>;
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                @*<input id="myInput" type="text" class="QA_form-control-search" placeholder="Search...">
+                    <a  class="btn btn-default btn-xs"><i class="fas fa-search"></i></a>*@
+            </div>
+            <div class="col-md-8">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="add_employee" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                            </li>
+                            @*<li class="d-inline-block mr-2">
+                                    <a class="btn btn-xs btn-primary text-white disabled" id="play_employee"><i class="far fa-eye mr-1"></i> Xem</a>
+                                </li>*@
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-warning text-white disabled" id="edit_employee"><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-danger text-white disabled" id="delete_employee"><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-orange " href=""><i class="fas fa-recycle mr-1"></i> Tải lại</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12">
+                    <div class="content-category">
+                        <div class="black employee ">
+                            <table class="table text-center table-bordered table-hover" id="myTable">
+                                <thead>
+                                    <tr class="maume">
+                                        <th style="width:5%;">#</th>
+                                        <th style="width:10%;">Avatar</th>
+                                        <th>Tên</th>
+                                        <th>Bộ phận</th>
+                                        <th>Ngày vào</th>
+                                        <th>Trạng thái</th>
+                                        <th style="width:35%;">Ghi chú</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show-body">
+                                    @{
+                                        foreach (var item in list_employee)
+                                        {
+                                            <tr id="row_@item.Id">
+                                                <td>
+                                                    <input type="hidden" id="data_edit_employee_@item.Id" value="@item.TE_Admin_Staff" />
+                                                    <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                                </td>
+                                                <td id="E_image_@item.Id">
+                                                    <img src="@item.E_Image" style="width: 40px; height: 40px;" class="img-circle" alt="QA_Tech" />
+                                                </td>
+                                                <td class="text-uppercase" id="E_Name_@item.Id">@item.E_Name</td>
+                                                <td id="TE_Name_@item.Id">@item.TE_Name</td>
+                                                <td id="E_Dayin_@item.Id">@item.E_Dayin.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                                                <td id="E_Active_@item.Id">
+                                                    @if (@item.E_Active == 0)
+                                                    {
+                                                        <a id="color_status_@item.Id" class="btn btn-xs btn-success" onclick='Employee(@item.Id)'>Kích hoạt</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a id="color_status_@item.Id" class="btn btn-xs btn-danger" onclick='Employee(@item.Id)'>Khóa</a>
+                                                    }
+                                                </td>
+                                                <td id="E_Note_@item.Id">@item.E_Note</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- het col-md-12 -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-->
+@RenderPage("Modal/AddEmployee.cshtml")
+@RenderPage("Modal/See_Employee.cshtml")
+

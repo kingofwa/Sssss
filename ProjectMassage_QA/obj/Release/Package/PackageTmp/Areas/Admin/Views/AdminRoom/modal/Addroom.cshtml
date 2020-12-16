@@ -1,0 +1,40 @@
+﻿@*@{
+        var list_cate = ViewData["list_cate"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblCategories>;
+    }*@
+
+<div class="modal fade" id="Modal_rooms">
+    <div class="modal-dialog modal-default">
+        <div class="modal-addcategories">
+            <div class="modal-header maume">
+                <h5 class="card-title text-white text-uppercase">Phòng</h5>
+                <span class="text-danger" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body">
+                <form id="Modal_work_form" class="row mauchu" action="">
+                    <input type="hidden" id="Id_room" value="0">
+                    <div class="form-group col-12">
+                        <label for="">Tên phòng <code>*</code></label>
+                        <input type="text" id="R_Name" class="form-control">
+                    </div>
+                    @*<div class="form-group col-12">
+                            <label for="">Thể loại <code>*</code></label>
+                            <select id="CategoryId" class="custom-select">
+                                @foreach (var item in list_cate.Where(x => x.C_Active == true).ToList())
+                                {
+                                    <option value="@item.Id">@item.C_Name</option>
+                                }
+                            </select>
+                        </div>*@
+                    <div class="form-group col-12">
+                        <label for="">Ghi chú</label>
+                        <textarea id="Note" cols="10" rows="1" class="form-control"></textarea>
+                    </div>
+                    <button type="button" id="save_room" class="btn btn-xs btn-primary float-right mt-2 m-2"><i class="fa fa-save"></i> Lưu</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-xs btn-danger float-right mt-2 m-2"><i class="fa fa-times"></i> Hủy</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

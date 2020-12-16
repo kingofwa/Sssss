@@ -1,0 +1,86 @@
+﻿@{
+    var list_doanh_thu_ngay = ViewData["list_doanh_thu_ngay"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.DOANH_THU_NGAY_Result>;
+    DateTime tungay, denngay;
+    if (ViewData["list_day"] == null)
+    {
+        denngay = DateTime.Now;
+        tungay = denngay.AddDays(-30);
+    }
+    else
+    {
+        var ma = ViewData["list_day"].ToString().Split('|');
+        denngay = Convert.ToDateTime(ma[1]);
+        tungay = Convert.ToDateTime(ma[0]);
+    }
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="row">
+                        <div class="col-8 mt-3">
+                            <form class="form-inline" >@*file jquery ở file QA_warkshift.js*@
+                                <label class="fontsize ml-2" for="">Ngày:</label>
+                                <input type="date" value="@tungay.ToString("yyyy-MM-dd")" class="form-control" id="tungay1">
+                                <label class="ml-3 fontsize" for="">Đến ngày: </label>
+                                <input type="date" value="@denngay.ToString("yyyy-MM-dd")" class="form-control" id="denngay1">
+                                <div id="button_search"> </div>
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            <div class=" menu-crud float-lg-right mt-2">
+                                <ul>
+                                    <li class="d-inline-block mr-2">
+                                        <a class="btn btn-xs btn-orange " href="#"><i class="fas fa-recycle mr-1"></i> Tải lại</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- het header CRUD -->
+                </div>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12" style="padding:0px ">
+                    <div class="content-category">
+                        <table class="table text-center table-bordered table-hover" id="myTable">
+                            <thead>
+                                <tr class="maume">
+                                    <th style="width:5%;">#</th>
+                                    <th>Ngày làm</th>
+                                    <th>Tổng tiền</th>
+                                    <th style="width:40%;">Ghi chú</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show-body">
+                                @{var j = 0;}
+                                @{
+                                    denngay=denngay.AddDays(1);
+                                    while (tungay < denngay)
+                                    {
+                                        double tong = 0;
+                                        foreach (var item in list_doanh_thu_ngay.Where(x => x.DayNew.GetValueOrDefault().Day == tungay.Day).ToList())
+                                        {
+                                            tong += (double)item.total_money;
+                                        }
+                                        if (tong > 0)
+                                        {
+                                            <tr>
+                                                <td>@j</td>
+                                                <td>@tungay.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-right text-danger"><b>@tong.ToString("N0")</b></td>
+                                                <td></td>
+                                            </tr>
+                                            j++;
+                                        }
+                                        tungay = tungay.AddDays(1);
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->

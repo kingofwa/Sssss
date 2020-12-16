@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Thong bao";
+
+    var list_discount = ViewData["list_discount"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.Discount_Code>;
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="Modal_discountssss" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-warning text-white disabled" id="edit_discount"><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="btn btn-xs btn-danger text-white disabled" id="delete_discount"><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <table class="table text-center table-bordered table-hover">
+                        <thead>
+                            <tr class="maume">
+                                <th colspan="1">#</th>
+                                <th>Tên</th>
+                                <th>Mã giảm</th>
+                                <th>% giảm</th>
+                                <th>Trạng thái</th>
+                                <th style="width:40%">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="show-body-discount">
+                            @foreach (var item in list_discount)
+                            {
+                                <tr id="row_@item.Id">
+                                    <td>
+                                        <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                    </td>
+                                    <td id="Name_discount_@item.Id">@item.Name_discount</td>
+                                    <td id="Discount_code_view_@item.Id">@item.Discount_code_view</td>
+                                    <td id="Sale_code_@item.Id">@item.Sale_code</td>
+                                    <td id="status_@item.Id">
+                                        @if (@item.status == 1)
+                                        {
+                                            <a id="color_status_@item.Id" class="btn btn-xs btn-success" onclick='Discount_lepvc(@item.Id)'>Kích hoạt</a>
+                                        }
+                                        else
+                                        {
+                                            <a id="color_status_@item.Id" class="btn btn-xs btn-danger" onclick='Discount_lepvc(@item.Id)'>Khóa</a>
+                                        }
+                                    </td>
+                                    <td id="Note_@item.Id">@item.Note</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+
+
+
+</div><!--/QA_warapper-content-category-->
+@RenderPage("modal/AddDiscount.cshtml")

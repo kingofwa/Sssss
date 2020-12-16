@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_categoryEmployee = ViewData["list_categoryEmployee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.TypeEmployee>;
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="Modal_categoryemployee" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-warning text-white disabled" id="edit_categoryemployee"><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="btn btn-xs btn-danger text-white disabled" id="delete_categoryemployee"><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <table class="table text-center table-bordered table-hover">
+                        <thead>
+                            <tr class="maume">
+                                <th style="width:5%;">#</th>
+                                <th>Bộ phận</th>
+                                <th>Đặc điểm</th>
+                                <th>Trạng thái</th>
+                                <th style="width:38%;">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="show-body">
+                             @{
+                                 foreach (var item in list_categoryEmployee)
+                                {
+                                    <tr id="row_@item.Id">
+                                        <td>
+                                            <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                        </td>
+                                        <td id="TE_Name_@item.Id">@item.TE_Name</td>
+                                        <td id="TE_Admin_Staff_@item.Id">
+                                            @if (@item.TE_Admin_Staff == 0)
+                                            {
+                                                <a id="TE_Admin_Staff_@item.Id">Không được đăng nhập</a>
+                                            }
+                                            @if (@item.TE_Admin_Staff == 1)
+                                            {
+                                                <a id="TE_Admin_Staff_@item.Id">Được đăng nhập</a>
+                                            }
+                                            @*@if (@item.TE_Admin_Staff == 2)
+                                            {
+                                                <a id="TE_Admin_Staff_@item.Id">Phục vụ</a>
+                                            }*@
+                                        </td>
+                                        <td id="C_Active_@item.Id">
+                                            @if (@item.TE_Active == true)
+                                            {
+                                                <a id="color_status_@item.Id" class="btn btn-xs btn-success" onclick='categorystatus(@item.Id)'>Kích hoạt</a>
+                                            }
+                                            else
+                                            {
+                                                <a id="color_status_@item.Id" class="btn btn-xs btn-danger" onclick='categorystatus(@item.Id)'>Khóa</a>
+                                            }
+                                        </td>
+                                        <td id="C_Note_@item.Id">@item.TE_Note</td>
+                                    </tr>
+
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->
+@RenderPage("modal/AddCategoryEmployee.cshtml")

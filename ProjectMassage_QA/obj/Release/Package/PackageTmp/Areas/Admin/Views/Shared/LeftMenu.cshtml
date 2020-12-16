@@ -1,0 +1,158 @@
+﻿
+<aside class="main-sidebar sidebar-dark-primary elevation-4 maume black" style="font-size:17px;">@*id="defaul_QA"*@
+    <!--QA Brand Logo -->
+    <a href="/Admin/AdminHome/home" class="brand-link">
+        <img src="/" alt="" class="brand-image img-circle elevation-3 " style="opacity: .8">
+        <span class="brand-text text-uppercase font-weight-light lepvc tencongty"> </span>
+    </a>
+
+    <div class="user-panel mt-1 pb-1 d-flex">
+        <div class="info">
+            <a href="#" class="d-block">
+                <span class="brand-text font-weight-light"> Xin chào: <i class="far fa-grin"></i> @Session["userName"].ToString() </span>
+            </a>
+        </div>
+        <a href="@Url.Action("LogOut", "Login")">
+            <i id="style_log_out_icon" class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+    <!--QA start Sidebar -->
+    <div class="sidebar" style="padding: 0px;">
+        <!-- Sidebar Menu -->
+        <nav>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                @*<li class="nav-item has-treeview">
+            <a href="/Admin/AdminHome/home" class="nav-link"><i class="fab fa-bandcamp"></i> <p>ĐIỀU KHIỂN </p></a>
+        </li>*@
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fab fa-bandcamp"></i>
+                        <p> DANH MỤC <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview bg-white" id="nav">
+                        <li class="nav-item">
+                            <a href="/Admin/AdminTypeOfWork/typeofwork" class="nav-link">
+                                @*data-target="/Admin/AdminTypeOfWork/typeofwork"*@
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Loại ca làm việc</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/AdminWorkShift/WorkShift" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ca làm việc</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminCategories/Categories" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thể loại</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminService/service" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Dịch vụ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminRoom/Room" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Phòng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- end danh muc -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link"><i class="fab fa-bandcamp"></i> <p> DOANH THU<i class="fas fa-angle-left right"></i></p></a>
+                    <ul class="nav nav-treeview bg-white">
+                        <li class="nav-item">
+                            <a href="/Admin/AdminCollectMoney/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Thu tiền</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminPayMoney/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Chi tiền</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminAccountant/CashBook" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Sổ quỹ</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminTurnoverShift/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Doanh thu ca</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminTurnoverDay/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Doanh thu ngày</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminSalesYear/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Doanh thu năm</p></a>
+                        </li>
+                    </ul>
+                </li><!-- end doanh thu -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link"><i class="fab fa-bandcamp"></i> <p> NHÂN VIÊN<i class="fas fa-angle-left right"></i></p></a>
+                    <ul class="nav nav-treeview bg-white">
+                        <li class="nav-item">
+                            <a href="/Admin/AdminCategoryEmployee/CategoryEmployee" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Bộ phận</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminEmployee/Employee" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Danh sách nhân viên</p></a>
+                        </li>
+                    </ul>
+                </li><!-- end nhân viên -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link"><i class="fab fa-bandcamp"></i> <p>ĐÁNH GIÁ<i class="fas fa-angle-left right"></i></p></a>
+                    <ul class="nav nav-treeview bg-white">
+                        <li class="nav-item">
+                            <a href="/Admin/AdminStaffEmployee/StarRatingEmployee" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Xếp hạng sao</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminStaffEmployee/NumberOfServings" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Số lần phục vụ</p></a>
+                        </li>
+                    </ul>
+                </li><!-- end quản lý khách hàng-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link"><i class="fab fa-bandcamp"></i> <p>NHÓM QUYỀN<i class="fas fa-angle-left right"></i></p></a>
+                    <ul class="nav nav-treeview bg-white">
+                        <li class="nav-item">
+                            <a href="/Admin/AccountUser/index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Tài khoản</p></a>
+                        </li>
+                        @*<li class="nav-item">
+                    <a href="/Admin/History_pay/index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Lịch sử Oder</p></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Lịch sử hoạt động</p></a>
+                </li>*@
+                        <li class="nav-item">
+                            <a href="/Admin/BLOG_BUSINESS/Danh_Muc_Va_Danh_Sach_Quyen_Han" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Phân quyền</p></a>
+                        </li>
+                    </ul>
+                </li><!-- end nhóm quyền -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link"><i class="fab fa-bandcamp"></i> <p>CÀI ĐẶT<i class="fas fa-angle-left right"></i></p></a>
+                    <ul class="nav nav-treeview bg-white">
+                        <li class="nav-item">
+                            <a href="/Admin/AdminRegister/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Admin</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminNotification/Notification" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Thông báo trang chủ</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminSettingAdmin/Setting" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Giao diện</p></a>
+                            @*<input type="text" id="session" value="@Session["userid"]"/>*@
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminDiscount/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Discount</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminSlide/Slide" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Slider</p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminFooter/Index" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Footer</p></a>
+                        </li>
+                    </ul>
+                </li><!-- end Setting-->
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

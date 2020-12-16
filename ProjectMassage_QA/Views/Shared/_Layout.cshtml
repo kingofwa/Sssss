@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA_Massage</title>
+    <link rel="stylesheet" href="../Public_QA/Client/vendor/bootstrap.js" />
+    <link rel="stylesheet" href="../Public_QA/Client/vendor/bootstrap.css" />
+    <link rel="stylesheet" href="../Public_QA/Client/vendor/font-awesome.css" />
+    <link rel="stylesheet" href="../Public_QA/Client/vendor/QA_csshome.css" />
+    <!-------------------------QA OWL carousel ---------------------------->
+    <link rel="stylesheet" href="../Public_QA/client/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../Public_QA/client/owlcarousel/assets/owl.theme.default.min.css">
+    <!-------------------------QA OWL carousel ---------------------------->
+    <link rel="stylesheet" href="../Public_QA/client/custom-slider/css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="../Public_QA/client/custom-slider/css/preview.css" type="text/css" media="screen" />
+    <link href="../Public_QA/Admin/QA_plugins/Zoom_image/css/zoom.css" rel="stylesheet" />
+    <link href="~/content/toastr.css" rel="stylesheet" />
+</head>
+<body>
+    @RenderBody()
+   
+    <script type="text/javascript" src="../Public_QA/client/vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="../Public_QA/client/vendor/isotope.pkgd.min.js"></script>
+    <script src="../Public_QA/client/owlcarousel/owl.carousel.js"></script>
+    <script src="../Public_QA/client/owlcarousel/owl.carousel.min.js"></script>
+    @*<script type="text/javascript" src="../Public_QA/client/vendor/imagesloaded.pkgd.min.js"></script>*@
+    <script src="../public_QA/client/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+    <script src="../public_QA/client/custom-slider/home.js" type="text/javascript"></script>
+    <script src="../Public_QA/Client/status_service.js" type="text/javascript"></script>
+    <script src="../Public_QA/Client/evaluate_star.js" type="text/javascript"></script>
+    <script src="../Public_QA/Client/custom-carouse_detailts.js" type="text/javascript"></script>
+    <script src="../Public_QA/Client/function.js" type="text/javascript"></script>
+    @*//confirm Oder*@
+    <script src="../Public_QA/Client/QA_confirmOder.js" type="text/javascript"></script>
+    @*//confirm Ranting*@
+    <script src="../Public_QA/Client/RantingEmployeeStaff.js" type="text/javascript"></script>
+    <script src="../Public_QA/Admin/QA_plugins/Zoom_image/js/zoom.js"></script>
+    <script src="../scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="../scripts/toastr.js"></script>
+
+</body>
+    @Html.Partial("modal/evaluate")
+    @Html.Partial("modal/DetailsEmployee")
+    @Html.Partial("modal/Service")
+    @Html.Partial("modal/StatusEployee")
+    @Html.Partial("modal/SuccessOder")
+
+</html>

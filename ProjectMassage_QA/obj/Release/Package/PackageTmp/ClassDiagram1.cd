@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjectMassage_QA.Areas.Admin.Controllers.category.AdminCategoriesController" Collapsed="true">
+    <Position X="3.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAQAAAAEBAAAAIAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\category\AdminCategoriesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMassage_QA.Areas.Admin.Controllers.category.AdminroomController" Collapsed="true">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAARAAAAABAAAAIAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\category\AdminroomController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMassage_QA.Areas.Admin.Controllers.category.AdminServiceController" Collapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAYAAAAAEAAAAIAAAAAQAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\category\AdminServiceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMassage_QA.Areas.Admin.Controllers.category.AdminTypeOfWorkController" Collapsed="true">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAQBAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\category\AdminTypeOfWorkController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMassage_QA.Areas.Admin.Controllers.category.AdminWorkShiftController" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\category\AdminWorkShiftController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

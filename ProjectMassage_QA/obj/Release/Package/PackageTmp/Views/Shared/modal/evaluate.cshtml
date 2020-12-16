@@ -1,0 +1,49 @@
+﻿
+
+<div class="modal fade" id="evaluate" role="dialog">
+    <!-- Modal đánh giá-->
+    <div class="modal-evaluate">
+        <div class="modal-header">
+            <h6 class="modal-title">Đánh giá phục vụ</h6>
+            @*<span data-dismiss="modal" id="close" aria-hidden="true">&times;</span>*@
+            <span><i class="fa fa-times" id="close_modal_evaluate"></i></span>
+        </div>
+        <div class="modal-body">
+            <form action="" class="form-inline QA_marginbottom m-1">
+                <div class="danhgianhanvien">
+                    <label for="">Mã Oder</label>
+                    <input type="text" id="codeOder" class="form-inline">
+                    <a id="searchCodeOder">
+                        <i class="fa fa-search" style="color: rgb(241, 117, 0); "></i>
+                    </a>
+                    <br>
+                    <input type="hidden" id="oder_ID" value="0" />
+                    <div class="collapse" id="evaluate_star">
+                        <div class="QA_evaluate card card-body">
+                            <table class="table table-light text-align-center">
+                                <tr id="top_none">
+                                    <td>Nhân viên</td>
+                                    <td>Hình</td>
+                                    <td>Đánh giá</td>
+                                </tr>
+                                <tbody id="show-data-employeestaff">
+                                   
+                                </tbody>
+                                <tbody id="show-data-employeestaff1">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <label class="none" for="note">Ghi chú <b class="text-danger">*</b></label>
+                        <textarea class="form-control none" name="" id="note_evalute" cols="1" rows="1"></textarea>
+                        <div class="modal-QA_evaluate button none">
+                            <button onclick="Add_data_evalute()" class="btn btn-success btn-sm QA_evaluate" >Đánh giá</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div> <!-- end Modal đánh giá-->

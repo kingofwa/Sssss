@@ -1,0 +1,101 @@
+﻿@{
+    var list_sales_Year = ViewData["list_sales_Year"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.DOANH_THU_NAM_Result>;
+    var list_oder_sales_year = ViewData["list_oder_sales_year"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblOrder>;
+}
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="row">
+                        @*<div class="col-8 mt-2">
+                                <form class="form-inline" action="/action_page.php">
+                                    <label class="fontsize" for="">Ngày:</label>
+                                    <input type="date" value="@tungay.ToString("yyyy-MM-dd")" class="form-control" id="">
+                                    <label class="ml-3 fontsize" for="">Đến ngày: </label>
+                                    <input type="date" value="@denngay.ToString("yyyy-MM-dd")" class="form-control" id="">
+                                </form>
+                            </div>*@
+                        <div class="col-12">
+                            <div class=" menu-crud float-lg-right mt-2">
+                                <ul>
+                                    <li class="d-inline-block mr-2">
+                                        <a class="btn btn-xs btn-primary" href="/Admin/AdminSalesYear/Index"><i class="fas fa-arrow-left mr-1"></i> Về tháng</a>
+                                    </li>
+                                    <li class="d-inline-block mr-2">
+                                        <a class="btn btn-xs btn-orange " href="#"><i class="fas fa-recycle mr-1"></i> Tải lại</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- het header CRUD -->
+                </div>
+            </div>
+            <div class="card-body lepvcc black direct-chat-messages">
+                <div class="col-md-12" style="padding:0px ">
+                    <div class="content-category">
+                        <table class="table text-center table-bordered " id="myTable">
+                            <thead>
+                                <tr class="maume">
+                                    <th style="width:04%;color:red;">STT</th>
+                                    <th style="width:13%">ODER</th>
+                                    <th style="width:13%">Ngày</th>
+                                    <th style="width:13%">Dịch vụ</th>
+                                    <th style="width:13%">Dịch vụ khác</th>
+                                    <th style="width:13%">Phòng</th>
+                                    <th style="width:13%">Phục vụ</th>
+                                    <th style="width:14%">Tổng thu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show-body">
+                                @{
+                                    var length = DateTime.Now.Month + 1;
+                                    var i = 1;
+                                    foreach (var item1 in list_oder_sales_year)
+                                    {
+                                        double dichvu = 0;
+                                        double dichvukhac = 0;
+                                        double phucvu = 0;
+                                        double phong = 0;
+                                        
+                                        foreach (var item in list_sales_Year.Where(x => x.Id == item1.Id && x.TypeOder == "service").ToList())
+                                        {
+                                            dichvu += (double)item.Money;
+                                        }
+                                        foreach (var item in list_sales_Year.Where(x => x.Id == item1.Id && x.TypeOder == "categori").ToList())
+                                        {
+                                            dichvukhac += (double)item.Money;
+                                        }
+                                        foreach (var item in list_sales_Year.Where(x => x.Id == item1.Id && x.TypeOder == "Employee").ToList())
+                                        {
+                                            phucvu += (double)item.Money;
+                                        }
+                                        foreach (var item in list_sales_Year.Where(x => x.Id == item1.Id && x.TypeOder == "room").ToList())
+                                        {
+                                            phong += (double)item.Money;
+                                        }
+                                        <tr>
+                                            <td class="mauchu">@i</td>
+                                            <td class="mauchu"> @item1.O_number</td>
+                                            <td class="mauchu"> @item1.DayNew.GetValueOrDefault().ToString("dd-MM-yyyy")</td>
+                                            <td class="text-right text-danger"><b>@dichvu.ToString("N0")</b></td>
+                                            <td class="text-right text-danger"><b>@dichvukhac.ToString("N0")</b></td>
+                                            <td class="text-right text-danger"><b>@phong.ToString("N0")</b></td>
+                                            <td class="text-right text-danger"><b>@phucvu.ToString("N0")</b></td>
+                                            @{
+                                                double Tong = 0;
+                                                Tong = dichvu + dichvukhac + phucvu + phong;
+                                            }
+                                            <td class="text-right text-danger"><b>@Tong.ToString("N0")</b></td>
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div>

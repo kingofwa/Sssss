@@ -1,0 +1,60 @@
+﻿@{
+    var list_employee = ViewData["list_employee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.map_employee_Result>;
+}
+
+<div class="card card-primary defaul_QA" style="margin-bottom:10px;">
+    <div class="card-header maume" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
+        <h3 class="card-title">
+            NHÂN VIÊN
+        </h3>
+    </div>
+    <div class="card-body black employeedetails direct-chat-messages">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6" style="border-right: 1px solid #d9caca;">
+                    <h6 class="text-center text-green">
+                        ONLINE
+                        <b class="spinner-grow text-success spinner-grow-sm" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </b>
+                    </h6>
+                    <div class="row">
+                        @foreach (var item in list_employee)
+                        {
+                            if (@item.E_Status == 1)
+                            {
+                                <div class="col-md-3 text-white">
+                                    <p class="eemployee text-xs-center  employee_details maunhanvienonline" data-id="@item.EmployeeId">@item.E_Name</p>
+                                    @*<div class="d-inline-block float-left overflow-hidden" style="width: 37px; margin-left: 4px; height: 40px; margin-bottom:14px;">
+                                            <img src="@item.E_Image" alt="QA_T" style="width:100%;" />
+                                        </div>*@
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-6" style="padding-left:10px;">
+                    <h6 class="text-center text-red">OFFLINE
+                        <b class="spinner-grow text-danger spinner-grow-sm" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </b>
+                    </h6>
+                    <div class="row">
+                        @foreach (var item in list_employee)
+                        {
+                            if (@item.E_Status == 2)
+                            {
+                                <div class="col-md-3 text-white">
+                                    <p class="eemployee text-xs-center employee_details maunhanviencokhach" data-id="@item.EmployeeId">@item.E_Name</p>
+                                    @*<div class="d-inline-block float-left overflow-hidden" style="width: 37px; margin-left: 4px; height: 40px; margin-bottom: 14px;">
+                                            <img src="@item.E_Image" alt="QA_T" style="width:100%;" />
+                                        </div>*@
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var list_category = ViewData["list_category"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblCategories>;
+}
+
+<div class="QA_warapper-content-category">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-content-category">
+                    <div class="menu-crud float-lg-right mt-2">
+                        <ul>
+                            <li class="d-inline-block mr-2">
+                                <a id="Modal_category" class="btn btn-xs btn-success " href="#"><i class="fas fa-plus mr-1"></i> Thêm</a>
+                            </li>
+                            <li class="d-inline-block mr-2">
+                                <a class="btn btn-xs btn-warning text-white disabled" id="edit_category"><i class="fas fa-user-edit mr-1"></i> Sữa</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="btn btn-xs btn-danger text-white disabled" id="delete_category"><i class="fas fa-trash-alt mr-1"></i> Xóa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- het header CRUD -->
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-category">
+                    <table class="table text-center table-bordered table-hover">
+                        <thead>
+                            <tr class="maume">
+                                <th colspan="1" style="width:5%;">#</th>
+                                <th>Thể loại</th>
+                                <th>Đơn giá</th>
+                                <th>Trạng thái</th>
+                                <th style="width:40%;">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="show-body">
+                             @{
+                                 foreach (var item in list_category)
+                                {
+                                    <tr id="row_@item.Id">
+                                        <td>
+                                            <input type="radio" name="radiocheck" class="activecheckedit" id="typehide_@item.Id" value="@item.Id" />
+                                        </td>
+                                        <td id="C_Name_@item.Id">@item.C_Name</td>
+                                        <td class="text-right" id="C_Money_@item.Id"><b class="text-danger">@item.C_Money.GetValueOrDefault().ToString("N0")</b></td>
+                                        <td id="C_Active_@item.Id">
+                                            @if (@item.C_Active == true)
+                                            {
+                                                <a id="color_status_@item.Id" class="btn btn-xs btn-success" onclick='troioi(@item.Id)'>Kích hoạt</a>
+                                            }
+                                            else
+                                            {
+                                                 <a id="color_status_@item.Id" class="btn btn-xs btn-danger" onclick='troioi(@item.Id)'>Khóa</a>
+                                            }
+                                        </td>
+                                        <td id="C_Note_@item.Id">@item.C_Note</td>
+                                    </tr>
+
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- het col-md-12 category -->
+        </div><!-- het row -->
+    </div><!-- het col-md-12 -->
+</div><!--/QA_warapper-content-category-->
+@RenderPage("Modal/AddCategory.cshtml")
+

@@ -1,0 +1,56 @@
+﻿@{
+    var list_typeemployeee = ViewData["list_typeemployeee"] as List<ProjectMassage_QA.Areas.Admin.Models.FW.tblEmployees>;
+}
+<div class="modal fade" id="Modal_add_user">
+    <div class="modal-dialog modal-default">
+        <div class="modal-addcategories">
+            <div class="modal-header maume">
+                <h5 class="card-title text-white text-uppercase">Tài Khoản</h5>
+                <span class="text-danger" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="modal-body mauchu">
+               
+                    <form id="Modal_work_form" class="row" action="">
+                        <input type="hidden" id="Id_User" value="0">
+                        <div class="form-group col-12">
+                            <label for="">Cấp cho nhân viên<code>*</code></label>
+                            <select id="TypeEmployeeeId" class="QA_form-control">
+                                @foreach (var item in list_typeemployeee.Where(x => x.E_Active == 0).ToList())
+                                {
+                                    <option value="@item.Id">@item.E_Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="">Cấp toàn quyền<code>*</code></label>
+                            <select id="" class="QA_form-control">
+                                <option value="POST">Không</option>
+                                <option value="ADMIN">Có</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="">Tên tài khoản<code>*</code></label>
+                            <input type="text" id="Name_User" class="form-control">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="">Email <code>*</code></label>
+                            <input type="text" id="Email_User" class="form-control">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="">PassWord <code>*</code></label>
+                            <input type="text" id="Pass_User" class="form-control">
+                        </div>
+                       
+                        <div class="form-group col-12">
+                            <label for="">Ghi chú</label>
+                            <textarea id="Note" cols="10" rows="1" class="form-control"></textarea>
+                        </div>
+                    </form>
+                <button type="submit" id="save_user" class="btn btn-xs btn-primary float-right mt-2 m-2"><i class="fa fa-save"></i> Lưu</button>
+                <a href="" class="btn btn-xs btn-danger float-right mt-2" data-dismiss="modal"><i class="fa fa-times"></i> Hủy</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
